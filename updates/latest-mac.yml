@@ -1,11 +1,11 @@
-version: 0.1.11
+version: 0.1.12
 files:
-  - url: OS Hero-0.1.11-arm64-mac.zip
-    sha512: hQpNTRb5u32NMugxrvqMyinDtDZqSKWBZVc8WHMysTu+zxiXtcGWtC+qKsev2r8bVzc/zf7a5GIw+U1UMW2vhQ==
+  - url: OS Hero-0.1.12-arm64-mac.zip
+    sha512: WW9d64RD5Wu1Ce/KDdSL1brmfGs/XCy+5R+MoIqKykzdW4oYacF4IlLdI0zywkNGiSvscenX+KeVhrU9YAasTQ==
     size: 98478203
-  - url: OS Hero-0.1.11-arm64.dmg
-    sha512: IDdyIAlfsifvMOv7JbxRXreBY+MC4bJD10SzJvFzj26lSvjqTQtTlOy65SNtcigBeyGpeBO9c506v83qI2Z9kQ==
-    size: 102933082
-path: OS Hero-0.1.11-arm64-mac.zip
-sha512: hQpNTRb5u32NMugxrvqMyinDtDZqSKWBZVc8WHMysTu+zxiXtcGWtC+qKsev2r8bVzc/zf7a5GIw+U1UMW2vhQ==
-releaseDate: '2026-05-29T22:17:20.402Z'
+  - url: OS Hero-0.1.12-arm64.dmg
+    sha512: tzZS28oi9JaA3kFFCra715noALkONDR7i+iGsvhjeDxbY9fqh3PeOpsrXm1nABItP6SieMRHxRasSopwKUrk3w==
+    size: 102932955
+path: OS Hero-0.1.12-arm64-mac.zip
+sha512: WW9d64RD5Wu1Ce/KDdSL1brmfGs/XCy+5R+MoIqKykzdW4oYacF4IlLdI0zywkNGiSvscenX+KeVhrU9YAasTQ==
+releaseDate: '2026-05-29T22:28:16.095Z'
