@@ -3,6 +3,40 @@ const PAGE_SIZE = 6;
 
 const releases = [
   {
+    version: "0.1.12",
+    releasedAt: "2026-05-30T07:29:37+09:00",
+    downloads: {
+      mac: "OS Hero-0.1.12-arm64.dmg",
+      win: "OS Hero Setup 0.1.12.exe"
+    },
+    copy: {
+      en: {
+        summary: "Updated the developer name shown in the app and website contact information.",
+        notes: [
+          "Changed the developer name in the OS Hero app info and Settings screens to 이충복.",
+          "Changed the developer name on the website Contact page to 이충복.",
+          "Published macOS and Windows 0.1.12 update artifacts so existing clients can receive the corrected app info."
+        ]
+      },
+      ko: {
+        summary: "앱과 웹사이트 문의 정보에 표시되는 개발자명을 수정했습니다.",
+        notes: [
+          "OS Hero 앱 정보와 환경설정 화면의 개발자명을 이충복으로 변경했습니다.",
+          "웹사이트 문의 페이지의 개발자명을 이충복으로 변경했습니다.",
+          "기존 클라이언트도 수정된 앱 정보를 받을 수 있도록 macOS와 Windows 0.1.12 업데이트 파일을 배포했습니다."
+        ]
+      },
+      zh: {
+        summary: "更新了应用和网站联系信息中显示的开发者姓名。",
+        notes: [
+          "将 OS Hero 应用信息和设置页面中的开发者姓名改为 이충복。",
+          "将网站联系页面中的开发者姓名改为 이충복。",
+          "发布 macOS 与 Windows 0.1.12 更新文件，让现有客户端获得修正后的应用信息。"
+        ]
+      }
+    }
+  },
+  {
     version: "0.1.11",
     releasedAt: "2026-05-30T07:18:43+09:00",
     downloads: {
@@ -538,7 +572,7 @@ function renderContact() {
         <dl class="contact-list">
           <div class="contact-row">
             <dt>${t("contact.developer")}</dt>
-            <dd>이요한</dd>
+            <dd>이충복</dd>
           </div>
           <div class="contact-row">
             <dt>${t("contact.contact")}</dt>
