@@ -1,8 +1,8 @@
-version: 0.1.8
+version: 0.1.9
 files:
-  - url: OS Hero Setup 0.1.8.exe
-    sha512: SXa6cSvO7Z1v8nMEqTxTUqJg1aCkk42uRxRu2RYbYLU+UxBOb9AhzfRZUC/2WkxleaPJggeusgLcIALNEQOeuA==
-    size: 89770934
-path: OS Hero Setup 0.1.8.exe
-sha512: SXa6cSvO7Z1v8nMEqTxTUqJg1aCkk42uRxRu2RYbYLU+UxBOb9AhzfRZUC/2WkxleaPJggeusgLcIALNEQOeuA==
-releaseDate: '2026-05-29T20:38:36.632Z'
+  - url: OS Hero Setup 0.1.9.exe
+    sha512: P2tKw/cJvlFIk0pwMss0WbtkwB3ds4d1c5E5MJKX6m8gksNRQ1PkROSkurzcvQAS0qBvI7+8HMyjQxiA2/nK3w==
+    size: 89691467
+path: OS Hero Setup 0.1.9.exe
+sha512: P2tKw/cJvlFIk0pwMss0WbtkwB3ds4d1c5E5MJKX6m8gksNRQ1PkROSkurzcvQAS0qBvI7+8HMyjQxiA2/nK3w==
+releaseDate: '2026-05-29T20:58:39.225Z'
