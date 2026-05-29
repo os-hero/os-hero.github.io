@@ -1,4 +1,4 @@
-const DOWNLOAD_BASE = "./updates/";
+const DOWNLOAD_BASE = "/updates/";
 const PAGE_SIZE = 6;
 
 const releases = [
@@ -121,9 +121,7 @@ const messages = {
     "home.downloadMac": "Download for macOS",
     "home.downloadWin": "Download for Windows",
     "home.downloadBoth": "Choose a download",
-    "home.detectedMac": "Detected macOS. Latest version: {version}.",
-    "home.detectedWin": "Detected Windows. Latest version: {version}.",
-    "home.detectedUnknown": "Choose the installer for your OS. Latest version: {version}.",
+    "home.latestVersion": "Latest version: {version}.",
     "home.archive": "View version archive",
     "install.title": "Install",
     "install.description": "Download the latest OS Hero release or browse previous versions. The latest buttons always point to the newest published build.",
@@ -159,9 +157,7 @@ const messages = {
     "home.downloadMac": "macOS용 다운로드",
     "home.downloadWin": "Windows용 다운로드",
     "home.downloadBoth": "다운로드 선택",
-    "home.detectedMac": "macOS 환경으로 감지했습니다. 최신 버전: {version}.",
-    "home.detectedWin": "Windows 환경으로 감지했습니다. 최신 버전: {version}.",
-    "home.detectedUnknown": "사용 중인 OS에 맞는 설치 파일을 선택하세요. 최신 버전: {version}.",
+    "home.latestVersion": "최신 버전: {version}.",
     "home.archive": "버전 아카이브 보기",
     "install.title": "설치",
     "install.description": "최신 OS Hero 릴리스를 받거나 이전 버전을 확인하세요. 최신 다운로드 버튼은 항상 가장 최근 배포 파일을 가리킵니다.",
@@ -197,9 +193,7 @@ const messages = {
     "home.downloadMac": "下载 macOS 版",
     "home.downloadWin": "下载 Windows 版",
     "home.downloadBoth": "选择下载",
-    "home.detectedMac": "已识别为 macOS。最新版本：{version}。",
-    "home.detectedWin": "已识别为 Windows。最新版本：{version}。",
-    "home.detectedUnknown": "请选择适合你系统的安装文件。最新版本：{version}。",
+    "home.latestVersion": "最新版本：{version}。",
     "home.archive": "查看版本归档",
     "install.title": "安装",
     "install.description": "下载最新 OS Hero 版本，或浏览历史版本。最新下载按钮会始终指向当前发布的最新版。",
@@ -287,6 +281,14 @@ function fileUrl(fileName) {
   return `${DOWNLOAD_BASE}${encodeURIComponent(fileName).replace(/%2F/g, "/")}`;
 }
 
+function routePath(path) {
+  if (!path || path === "/") {
+    return "/";
+  }
+
+  return path.startsWith("/") ? path : `/${path}`;
+}
+
 function formatDate(value) {
   return new Intl.DateTimeFormat(language === "ko" ? "ko-KR" : language === "zh" ? "zh-CN" : "en-US", {
     year: "numeric",
@@ -316,7 +318,6 @@ function downloadButton(release, platform, className = "button") {
 function renderHome() {
   const latest = releases[0];
   const platform = detectPlatform();
-  const contextKey = platform === "mac" ? "home.detectedMac" : platform === "win" ? "home.detectedWin" : "home.detectedUnknown";
   const primaryActions = platform
     ? downloadButton(latest, platform)
     : `${downloadButton(latest, "mac")} ${downloadButton(latest, "win", "button secondary")}`;
@@ -330,12 +331,12 @@ function renderHome() {
           <p class="lead">${t("home.lead")}</p>
           <div class="actions">
             ${primaryActions}
-            <a class="button secondary" href="#/install">${t("home.archive")}</a>
+            <a class="button secondary" href="/install">${t("home.archive")}</a>
           </div>
-          <p class="download-context">${t(contextKey, { version: latest.version })}</p>
+          <p class="download-context">${t("home.latestVersion", { version: latest.version })}</p>
         </div>
         <div class="hero-art" aria-hidden="true">
-          <img class="hero-icon" src="./assets/app-icon.png" alt="">
+          <img class="hero-icon" src="/assets/app-icon.png" alt="">
         </div>
       </div>
     </section>
@@ -402,11 +403,11 @@ function renderInstall() {
       if (event.target.closest("[data-download]")) {
         return;
       }
-      window.location.hash = `#/versions/${row.dataset.version}`;
+      navigate(`/versions/${row.dataset.version}`);
     });
     row.addEventListener("keydown", (event) => {
       if (event.key === "Enter") {
-        window.location.hash = `#/versions/${row.dataset.version}`;
+        navigate(`/versions/${row.dataset.version}`);
       }
     });
   });
@@ -432,7 +433,7 @@ function renderVersion(version) {
     <section class="section">
       <div class="inner detail-layout">
         <article>
-          <a class="small-link" href="#/install">${t("detail.back")}</a>
+          <a class="small-link" href="/install">${t("detail.back")}</a>
           <h2>${t("detail.title", { version: release.version })}</h2>
           <p class="lead">${t("detail.updated", { date: formatDate(release.releasedAt) })}</p>
           <h3>${t("detail.notes")}</h3>
@@ -481,16 +482,14 @@ function renderNotFound() {
     <section class="section">
       <div class="inner">
         <h2>${t("notFound.title")}</h2>
-        <a class="button" href="#/">${t("notFound.action")}</a>
+        <a class="button" href="/">${t("notFound.action")}</a>
       </div>
     </section>
   `);
 }
 
 function renderRoute() {
-  const hash = window.location.hash || "#/";
-  const [, route = ""] = hash.split("#/");
-  const parts = route.split("/").filter(Boolean);
+  const parts = window.location.pathname.split("/").filter(Boolean);
 
   if (parts.length === 0) {
     renderHome();
@@ -517,5 +516,28 @@ document.getElementById("languageSelect").addEventListener("change", (event) => 
   renderRoute();
 });
 
-window.addEventListener("hashchange", renderRoute);
+function navigate(path) {
+  const nextPath = routePath(path);
+  if (window.location.pathname !== nextPath) {
+    window.history.pushState({}, "", nextPath);
+  }
+  renderRoute();
+}
+
+document.addEventListener("click", (event) => {
+  const link = event.target.closest("a[href]");
+  if (!link) {
+    return;
+  }
+
+  const href = link.getAttribute("href");
+  if (!href || href.startsWith("http") || href.startsWith("mailto:") || href.startsWith("/updates/") || link.hasAttribute("download")) {
+    return;
+  }
+
+  event.preventDefault();
+  navigate(href);
+});
+
+window.addEventListener("popstate", renderRoute);
 renderRoute();
