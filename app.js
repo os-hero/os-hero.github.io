@@ -3,6 +3,43 @@ const PAGE_SIZE = 6;
 
 const releases = [
   {
+    version: "0.1.11",
+    releasedAt: "2026-05-30T07:18:43+09:00",
+    downloads: {
+      mac: "OS Hero-0.1.11-arm64.dmg",
+      win: "OS Hero Setup 0.1.11.exe"
+    },
+    copy: {
+      en: {
+        summary: "Added notification permission checks before saving reminder quests.",
+        notes: [
+          "Checks OS notification support before a reminder quest is saved.",
+          "Requests notification permission when needed and blocks reminder saving if permission is denied.",
+          "Shows localized permission guidance in English, Korean, and Simplified Chinese.",
+          "Records a reminder as notified only after Electron confirms the OS notification was shown."
+        ]
+      },
+      ko: {
+        summary: "리마인더 퀘스트 저장 전에 OS 알림 권한 확인을 추가했습니다.",
+        notes: [
+          "리마인더 퀘스트 저장 전에 OS 알림 지원 여부를 확인합니다.",
+          "필요한 경우 알림 권한을 요청하고, 권한이 거부되어 있으면 리마인더 저장을 막습니다.",
+          "영어, 한국어, 중국어 간체로 권한 안내 문구를 표시합니다.",
+          "Electron이 OS 알림 표시를 확인한 뒤에만 리마인더를 알림 완료로 기록합니다."
+        ]
+      },
+      zh: {
+        summary: "在保存提醒任务前新增系统通知权限检查。",
+        notes: [
+          "保存提醒任务前会检查系统通知支持状态。",
+          "需要时请求通知权限；如果权限被拒绝，则阻止保存提醒。",
+          "新增英语、韩语和简体中文的权限提示文案。",
+          "只有在 Electron 确认系统通知已显示后，才将提醒记录为已通知。"
+        ]
+      }
+    }
+  },
+  {
     version: "0.1.10",
     releasedAt: "2026-05-30T07:03:55+09:00",
     downloads: {
