@@ -1,0 +1,11 @@
+version: 0.1.7
+files:
+  - url: OS Hero-0.1.7-arm64-mac.zip
+    sha512: nS1QlakQgIpBcvUYAau+DmflVCwGlLpsU8/7sRaMUhDDmqHehT/tnK9s7HWQhKVxmM6qV6MEpXO8GO5ypxdIXQ==
+    size: 96926889
+  - url: OS Hero-0.1.7-arm64.dmg
+    sha512: 9vvl6Afbt4lDOmtkRnby0Qm5NWcAjB9kxZDxkcOt5AlpL2/VTQIh7tfnwluj9GP4b+7Aq8jMGTQr0zdAEa/S3Q==
+    size: 100031945
+path: OS Hero-0.1.7-arm64-mac.zip
+sha512: nS1QlakQgIpBcvUYAau+DmflVCwGlLpsU8/7sRaMUhDDmqHehT/tnK9s7HWQhKVxmM6qV6MEpXO8GO5ypxdIXQ==
+releaseDate: '2026-05-29T20:15:48.075Z'
