@@ -3,6 +3,46 @@ const PAGE_SIZE = 6;
 
 const releases = [
   {
+    version: "0.1.10",
+    releasedAt: "2026-05-30T07:03:55+09:00",
+    downloads: {
+      mac: "OS Hero-0.1.10-arm64.dmg",
+      win: "OS Hero Setup 0.1.10.exe"
+    },
+    copy: {
+      en: {
+        summary: "Added the Hero menu rename and the first Quests workflow with logs, bookmarks, and reminders.",
+        notes: [
+          "Renamed the View / Customize Character tray menu item to Hero across English, Korean, and Simplified Chinese.",
+          "Added the Quests tray menu between Inventory and Settings.",
+          "Added Adventure Log, Bookmark Record, and Reminder quest types with local JSON persistence.",
+          "Added quest table pagination, newest-first sorting, detail pages, edit and delete actions, and inline status updates.",
+          "Added OS notifications for reminder quests; clicking a notification opens the related quest detail window."
+        ]
+      },
+      ko: {
+        summary: "히어로 메뉴명 변경과 모험 일지, 북마크, 리마인더를 포함한 첫 퀘스트 기능을 추가했습니다.",
+        notes: [
+          "트레이 메뉴의 캐릭터 보기 / 커스터마이징 항목을 영어, 한국어, 중국어 간체에서 히어로 맥락의 이름으로 변경했습니다.",
+          "인벤토리와 환경설정 사이에 퀘스트 메뉴를 추가했습니다.",
+          "모험 일지, 북마크 기록, 리마인더 퀘스트 타입과 로컬 JSON 저장 구조를 추가했습니다.",
+          "퀘스트 테이블 페이지네이션, 최신순 정렬, 상세 페이지, 수정/삭제, 인라인 상태 변경을 추가했습니다.",
+          "리마인더 퀘스트용 OS 알림을 추가했고, 알림 클릭 시 해당 퀘스트 상세 창이 열리도록 했습니다."
+        ]
+      },
+      zh: {
+        summary: "新增英雄菜单命名和首个任务功能，包含冒险日志、书签与提醒。",
+        notes: [
+          "将托盘菜单中的查看 / 自定义角色在英语、韩语和简体中文中改为英雄品牌语境。",
+          "在背包与设置之间新增任务菜单。",
+          "新增冒险日志、书签记录和提醒三种任务类型，并使用本地 JSON 保存。",
+          "新增任务表格分页、按最新排序、详情页、编辑、删除和行内状态更新。",
+          "为提醒任务新增系统通知，点击通知会打开对应任务详情窗口。"
+        ]
+      }
+    }
+  },
+  {
     version: "0.1.9",
     releasedAt: "2026-05-30T05:58:39+09:00",
     downloads: {
