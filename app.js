@@ -234,6 +234,9 @@ const messages = {
     "home.downloadBoth": "Choose a download",
     "home.latestVersion": "Latest version: {version}.",
     "home.archive": "View version archive",
+    "home.menuEyebrow": "Tray menu guide",
+    "home.menuTitle": "Everything starts from the OS Hero icon",
+    "home.menuLead": "OS Hero stays out of the way until you open the menu bar or system tray icon. These are the main places you will use after installing the app.",
     "install.title": "Install",
     "install.description": "Download the latest OS Hero release or browse previous versions. The latest buttons always point to the newest published build.",
     "install.version": "Version",
@@ -270,6 +273,9 @@ const messages = {
     "home.downloadBoth": "다운로드 선택",
     "home.latestVersion": "최신 버전: {version}.",
     "home.archive": "버전 아카이브 보기",
+    "home.menuEyebrow": "트레이 메뉴 안내",
+    "home.menuTitle": "모든 기능은 OS Hero 아이콘에서 시작됩니다",
+    "home.menuLead": "OS Hero는 메뉴 막대 또는 시스템 트레이에 조용히 머물다가, 아이콘을 클릭했을 때 필요한 화면을 열어 줍니다. 설치 후 가장 자주 쓰게 될 메뉴는 아래와 같습니다.",
     "install.title": "설치",
     "install.description": "최신 OS Hero 릴리스를 받거나 이전 버전을 확인하세요. 최신 다운로드 버튼은 항상 가장 최근 배포 파일을 가리킵니다.",
     "install.version": "버전",
@@ -306,6 +312,9 @@ const messages = {
     "home.downloadBoth": "选择下载",
     "home.latestVersion": "最新版本：{version}。",
     "home.archive": "查看版本归档",
+    "home.menuEyebrow": "托盘菜单指南",
+    "home.menuTitle": "所有功能都从 OS Hero 图标开始",
+    "home.menuLead": "OS Hero 会安静地停留在菜单栏或系统托盘中。点击图标后，你可以从这些菜单进入主要功能。",
     "install.title": "安装",
     "install.description": "下载最新 OS Hero 版本，或浏览历史版本。最新下载按钮会始终指向当前发布的最新版。",
     "install.version": "版本",
@@ -329,6 +338,87 @@ const messages = {
     "notFound.title": "页面未找到",
     "notFound.action": "返回首页"
   }
+};
+
+const menuGuides = {
+  en: [
+    {
+      name: "Hero",
+      body: "Open the character editor. Change gender, eye type, and body color, then save to update the menu bar or tray icon."
+    },
+    {
+      name: "Inventory",
+      body: "Dress the hero with one head item, one outfit, and one tool. Selecting an item previews it before you equip it."
+    },
+    {
+      name: "Quests",
+      body: "Assign missions to your hero. Use adventure logs for notes, bookmark records for web links, and reminders for OS notifications."
+    },
+    {
+      name: "Settings",
+      body: "Control launch at login, check for new versions, and review app version, developer, contact, and copyright details."
+    },
+    {
+      name: "Language",
+      body: "Switch the entire app between English, Korean, and Simplified Chinese. The selected language is saved locally."
+    },
+    {
+      name: "About / Quit",
+      body: "Open the app information window or fully quit OS Hero. Quitting removes the menu bar or tray icon."
+    }
+  ],
+  ko: [
+    {
+      name: "히어로",
+      body: "캐릭터 편집 화면을 엽니다. 성별, 눈 타입, 바디 색상을 바꾸고 저장하면 메뉴 막대 또는 트레이 아이콘에 바로 반영됩니다."
+    },
+    {
+      name: "인벤토리",
+      body: "머리, 의류, 도구 아이템을 각각 하나씩 착용합니다. 아이템을 선택하면 저장 전 우측 미리보기에서 먼저 확인할 수 있습니다."
+    },
+    {
+      name: "퀘스트",
+      body: "히어로에게 임무를 부여합니다. 모험 일지는 메모, 북마크 기록은 웹 링크, 리마인더는 OS 알림으로 사용할 수 있습니다."
+    },
+    {
+      name: "환경설정",
+      body: "로그인 시 자동 실행을 켜고 끄거나, 새 버전을 확인하고, 앱 버전과 개발자 정보를 확인합니다."
+    },
+    {
+      name: "Language",
+      body: "앱 전체 언어를 영어, 한국어, 중국어 간체 중 하나로 바꿉니다. 선택한 언어는 로컬에 저장됩니다."
+    },
+    {
+      name: "앱 정보 / 종료",
+      body: "앱 정보 창을 열거나 OS Hero를 완전히 종료합니다. 종료하면 메뉴 막대 또는 트레이 아이콘도 사라집니다."
+    }
+  ],
+  zh: [
+    {
+      name: "英雄",
+      body: "打开角色编辑器。修改性别、眼睛类型和身体颜色，保存后会更新菜单栏或托盘图标。"
+    },
+    {
+      name: "背包",
+      body: "为英雄装备一个头部物品、一套服装和一个工具。选择物品后，可先在预览中确认效果。"
+    },
+    {
+      name: "任务",
+      body: "给英雄分配任务。冒险日志用于记录笔记，书签记录用于保存网页链接，提醒用于发送系统通知。"
+    },
+    {
+      name: "设置",
+      body: "开关登录时启动，检查新版本，并查看应用版本、开发者、联系方式和版权信息。"
+    },
+    {
+      name: "Language",
+      body: "在英语、韩语和简体中文之间切换整个应用语言。选择结果会保存在本地。"
+    },
+    {
+      name: "关于 / 退出",
+      body: "打开应用信息窗口，或完全退出 OS Hero。退出后菜单栏或托盘图标也会移除。"
+    }
+  ]
 };
 
 let language = getInitialLanguage();
@@ -375,6 +465,10 @@ function t(key, replacements = {}) {
 
 function getReleaseCopy(release) {
   return release.copy[language] || release.copy.en;
+}
+
+function getMenuGuideItems() {
+  return menuGuides[language] || menuGuides.en;
 }
 
 function detectPlatform() {
@@ -432,6 +526,7 @@ function renderHome() {
   const primaryActions = platform
     ? downloadButton(latest, platform)
     : `${downloadButton(latest, "mac")} ${downloadButton(latest, "win", "button secondary")}`;
+  const menuGuideItems = getMenuGuideItems();
 
   renderLayout(`
     <section class="section">
@@ -448,6 +543,25 @@ function renderHome() {
         </div>
         <div class="hero-art" aria-hidden="true">
           <img class="hero-icon" src="/assets/app-icon.png" alt="">
+        </div>
+      </div>
+    </section>
+    <section class="section soft-band">
+      <div class="inner menu-guide">
+        <p class="eyebrow">${t("home.menuEyebrow")}</p>
+        <h2>${t("home.menuTitle")}</h2>
+        <p class="section-copy">${t("home.menuLead")}</p>
+        <div class="menu-guide-list">
+          ${menuGuideItems
+            .map(
+              (item) => `
+                <article class="menu-guide-item">
+                  <h3>${item.name}</h3>
+                  <p>${item.body}</p>
+                </article>
+              `
+            )
+            .join("")}
         </div>
       </div>
     </section>
