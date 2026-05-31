@@ -3,6 +3,40 @@ const PAGE_SIZE = 6;
 
 const releases = [
   {
+    version: "0.1.18",
+    releasedAt: "2026-05-31T23:45:13+09:00",
+    downloads: {
+      mac: "OS Hero-0.1.18-arm64.dmg",
+      win: "OS Hero Setup 0.1.18.exe"
+    },
+    copy: {
+      en: {
+        summary: "Fixed the Inventory window width so it stays stable while selecting items.",
+        notes: [
+          "Inventory item selection no longer triggers automatic window resizing.",
+          "Switching Inventory tabs and equipping items keeps the window width fixed.",
+          "Other app windows keep their existing content fitting behavior."
+        ]
+      },
+      ko: {
+        summary: "인벤토리에서 아이템을 선택할 때 창 폭이 줄어드는 문제를 수정했습니다.",
+        notes: [
+          "Inventory 아이템 선택 시 창 크기 자동 맞춤을 실행하지 않도록 수정했습니다.",
+          "Inventory 탭 변경과 착용/해제를 반복해도 창 폭이 고정됩니다.",
+          "다른 앱 창의 기존 콘텐츠 맞춤 동작은 유지했습니다."
+        ]
+      },
+      zh: {
+        summary: "修复背包中选择物品时窗口宽度变小的问题。",
+        notes: [
+          "选择背包物品时不再触发自动窗口缩放。",
+          "切换背包标签和装备物品时窗口宽度保持固定。",
+          "其他应用窗口保留原有的内容适配行为。"
+        ]
+      }
+    }
+  },
+  {
     version: "0.1.17",
     releasedAt: "2026-05-31T23:31:11+09:00",
     downloads: {
