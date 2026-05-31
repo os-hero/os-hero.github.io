@@ -3,6 +3,40 @@ const PAGE_SIZE = 6;
 
 const releases = [
   {
+    version: "0.1.15",
+    releasedAt: "2026-05-31T17:35:46+09:00",
+    downloads: {
+      mac: "OS Hero-0.1.15-arm64.dmg",
+      win: "OS Hero Setup 0.1.15.exe"
+    },
+    copy: {
+      en: {
+        summary: "Added a custom tray panel with active quests and main app shortcuts.",
+        notes: [
+          "Left-clicking the menu bar or system tray icon now opens a custom OS Hero panel.",
+          "The panel shows active quests with large Hero, Inventory, Quests, Settings, and More buttons.",
+          "The More button and tray right-click keep the original native menu for language, app info, and quit."
+        ]
+      },
+      ko: {
+        summary: "진행중 퀘스트와 주요 바로가기를 담은 커스텀 트레이 패널을 추가했습니다.",
+        notes: [
+          "메뉴 바 또는 시스템 트레이 아이콘을 좌클릭하면 OS Hero 커스텀 패널이 열립니다.",
+          "패널에는 진행중 퀘스트와 Hero, Inventory, Quests, Settings, More 큰 버튼이 표시됩니다.",
+          "More 버튼과 트레이 우클릭은 언어, 앱 정보, 종료를 위한 기존 네이티브 메뉴를 유지합니다."
+        ]
+      },
+      zh: {
+        summary: "新增自定义托盘面板，显示进行中任务和主要入口。",
+        notes: [
+          "左键点击菜单栏或系统托盘图标时，会打开 OS Hero 自定义面板。",
+          "面板会显示进行中任务，以及 Hero、Inventory、Quests、Settings、More 大按钮。",
+          "More 按钮和托盘右键仍保留原生菜单，用于语言、应用信息和退出。"
+        ]
+      }
+    }
+  },
+  {
     version: "0.1.14",
     releasedAt: "2026-05-31T16:38:33+09:00",
     downloads: {
