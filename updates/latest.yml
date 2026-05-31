@@ -1,8 +1,8 @@
-version: 0.1.15
+version: 0.1.16
 files:
-  - url: OS Hero Setup 0.1.15.exe
-    sha512: LO+QegqnD0f4QByevWcz8xGZr+J+a92UmCU+CTp0zxzr5Jj1RkY1Hw6vCRNZYXMBK4cTcr2vufMwUcwLR4w6lQ==
-    size: 89700744
-path: OS Hero Setup 0.1.15.exe
-sha512: LO+QegqnD0f4QByevWcz8xGZr+J+a92UmCU+CTp0zxzr5Jj1RkY1Hw6vCRNZYXMBK4cTcr2vufMwUcwLR4w6lQ==
-releaseDate: '2026-05-31T08:35:46.885Z'
+  - url: OS Hero Setup 0.1.16.exe
+    sha512: QduCYABGtVPzqoGMR1vwxtlLxNLT2pLhtDFwz5kthGvFjNuW8ET7dIyuWn9LYgj/5a7B6n+uYeHJetnqHp1Kng==
+    size: 89700521
+path: OS Hero Setup 0.1.16.exe
+sha512: QduCYABGtVPzqoGMR1vwxtlLxNLT2pLhtDFwz5kthGvFjNuW8ET7dIyuWn9LYgj/5a7B6n+uYeHJetnqHp1Kng==
+releaseDate: '2026-05-31T13:42:59.556Z'
