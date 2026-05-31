@@ -3,6 +3,40 @@ const PAGE_SIZE = 6;
 
 const releases = [
   {
+    version: "0.1.13",
+    releasedAt: "2026-05-31T14:28:14+09:00",
+    downloads: {
+      mac: "OS Hero-0.1.13-arm64.dmg",
+      win: "OS Hero Setup 0.1.13.exe"
+    },
+    copy: {
+      en: {
+        summary: "Upgraded the pixel hero renderer for more detailed character and item styling.",
+        notes: [
+          "Raised the character rendering grid from 16x16 to 24x24 virtual pixels.",
+          "Redrew body, face, eyes, clothes, hair, glasses, and bag layers with more readable pixel detail.",
+          "Adjusted Hero and Inventory previews to a crisp 192px integer-scaled view."
+        ]
+      },
+      ko: {
+        summary: "캐릭터와 아이템을 더 세밀하게 꾸밀 수 있도록 픽셀 히어로 렌더링을 업그레이드했습니다.",
+        notes: [
+          "캐릭터 렌더링 기준을 16x16에서 24x24 가상 픽셀로 상향했습니다.",
+          "바디, 얼굴, 눈, 의상, 머리, 안경, 가방 레이어를 더 잘 보이는 픽셀 디테일로 다시 그렸습니다.",
+          "Hero와 Inventory 미리보기를 192px 정수 배율로 맞춰 선명하게 보이도록 조정했습니다."
+        ]
+      },
+      zh: {
+        summary: "升级像素英雄渲染，让角色和物品装扮拥有更多细节。",
+        notes: [
+          "将角色渲染网格从 16x16 提升到 24x24 虚拟像素。",
+          "重新绘制身体、脸部、眼睛、服装、发型、眼镜和背包图层，使像素细节更清晰。",
+          "将英雄和背包预览调整为 192px 的整数倍缩放，保持画面锐利。"
+        ]
+      }
+    }
+  },
+  {
     version: "0.1.12",
     releasedAt: "2026-05-30T07:29:37+09:00",
     downloads: {
