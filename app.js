@@ -3,6 +3,40 @@ const PAGE_SIZE = 6;
 
 const releases = [
   {
+    version: "0.1.14",
+    releasedAt: "2026-05-31T16:38:33+09:00",
+    downloads: {
+      mac: "OS Hero-0.1.14-arm64.dmg",
+      win: "OS Hero Setup 0.1.14.exe"
+    },
+    copy: {
+      en: {
+        summary: "Adjusted the tray icon so the pixel hero has breathing room in the OS menu area.",
+        notes: [
+          "Added a tray-specific 32x32 transparent canvas around the 24x24 pixel hero.",
+          "Kept at least 4 transparent pixels on every side of the menu bar and system tray icon.",
+          "Left the Hero and Inventory previews at the detailed 24x24 integer-scaled view."
+        ]
+      },
+      ko: {
+        summary: "OS 메뉴 영역에서 픽셀 히어로가 너무 커 보이지 않도록 트레이 아이콘 여백을 조정했습니다.",
+        notes: [
+          "24x24 픽셀 히어로를 트레이 전용 32x32 투명 캔버스에 배치했습니다.",
+          "메뉴 바와 시스템 트레이 아이콘의 상하좌우에 최소 4px 투명 패딩을 확보했습니다.",
+          "Hero와 Inventory 미리보기는 기존 24x24 정수 배율 디테일을 유지했습니다."
+        ]
+      },
+      zh: {
+        summary: "调整托盘图标留白，让像素英雄在系统菜单区域中不显得过大。",
+        notes: [
+          "将 24x24 像素英雄放入托盘专用的 32x32 透明画布。",
+          "在菜单栏和系统托盘图标四周保留至少 4px 透明留白。",
+          "英雄和背包预览继续保持 24x24 的整数倍清晰显示。"
+        ]
+      }
+    }
+  },
+  {
     version: "0.1.13",
     releasedAt: "2026-05-31T14:28:14+09:00",
     downloads: {
