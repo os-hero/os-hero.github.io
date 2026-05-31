@@ -3,6 +3,43 @@ const PAGE_SIZE = 6;
 
 const releases = [
   {
+    version: "0.1.17",
+    releasedAt: "2026-05-31T23:31:11+09:00",
+    downloads: {
+      mac: "OS Hero-0.1.17-arm64.dmg",
+      win: "OS Hero Setup 0.1.17.exe"
+    },
+    copy: {
+      en: {
+        summary: "Expanded RPG customization with more eyes, hairstyles, outfits, and equipment.",
+        notes: [
+          "Added two new eye types for sharper and brighter character expressions.",
+          "Expanded hair and head items with 12 hairstyles plus RPG pieces like crowns, helmets, hoods, and hats.",
+          "Added RPG outfits including wizard robes, princess dress, knight armor, rogue cloak, ninja suit, royal robe, and more.",
+          "Added RPG tools including sword, shields, staff, bow, axe, dagger, spellbook, spear, hammer, potion, and torch."
+        ]
+      },
+      ko: {
+        summary: "눈, 헤어, 의상, 장비를 늘려 RPG 커스터마이징 선택지를 확장했습니다.",
+        notes: [
+          "더 날카롭거나 반짝이는 표정을 만들 수 있도록 눈 타입 2개를 추가했습니다.",
+          "헤어 스타일 12개와 왕관, 투구, 후드, 모자 같은 RPG 머리 아이템을 확장했습니다.",
+          "마법사 로브, 공주 드레스, 기사 갑옷, 도적 망토, 닌자 복장, 왕실 로브 등 RPG 의상을 추가했습니다.",
+          "검, 방패, 지팡이, 활, 도끼, 단검, 마법서, 창, 망치, 물약, 횃불 등 RPG 도구를 추가했습니다."
+        ]
+      },
+      zh: {
+        summary: "扩展 RPG 自定义内容，新增眼睛、发型、服装和装备。",
+        notes: [
+          "新增两种眼睛类型，可表现更锐利或更明亮的角色表情。",
+          "扩展到 12 种发型，并加入王冠、头盔、兜帽和帽子等 RPG 头部物品。",
+          "新增法师长袍、公主裙、骑士铠甲、盗贼斗篷、忍者服、皇家长袍等 RPG 服装。",
+          "新增剑、盾、法杖、弓、斧、匕首、魔法书、长矛、战锤、药水和火把等 RPG 工具。"
+        ]
+      }
+    }
+  },
+  {
     version: "0.1.16",
     releasedAt: "2026-05-31T22:42:59+09:00",
     downloads: {
