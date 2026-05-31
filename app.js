@@ -3,6 +3,40 @@ const PAGE_SIZE = 6;
 
 const releases = [
   {
+    version: "0.1.16",
+    releasedAt: "2026-05-31T22:42:59+09:00",
+    downloads: {
+      mac: "OS Hero-0.1.16-arm64.dmg",
+      win: "OS Hero Setup 0.1.16.exe"
+    },
+    copy: {
+      en: {
+        summary: "Fixed the tray click behavior so the custom panel no longer appears with the native menu.",
+        notes: [
+          "Removed the always-attached native tray menu that could appear together with the custom panel on macOS.",
+          "The native menu now opens only from the More button inside the custom tray panel.",
+          "Limited the More menu to Language, About OS Hero, and Quit."
+        ]
+      },
+      ko: {
+        summary: "트레이 클릭 시 커스텀 패널과 네이티브 메뉴가 동시에 뜨는 문제를 수정했습니다.",
+        notes: [
+          "macOS에서 커스텀 패널과 함께 뜰 수 있던 상시 연결 네이티브 트레이 메뉴를 제거했습니다.",
+          "네이티브 메뉴는 이제 커스텀 트레이 패널의 더보기 버튼에서만 열립니다.",
+          "더보기 메뉴 항목은 Language, 앱 정보, 종료로 제한했습니다."
+        ]
+      },
+      zh: {
+        summary: "修复点击托盘时自定义面板和原生菜单同时出现的问题。",
+        notes: [
+          "移除了 macOS 上可能与自定义面板同时出现的常驻原生托盘菜单。",
+          "原生菜单现在只会从自定义托盘面板中的 More 按钮打开。",
+          "More 菜单仅保留 Language、关于 OS Hero 和退出。"
+        ]
+      }
+    }
+  },
+  {
     version: "0.1.15",
     releasedAt: "2026-05-31T17:35:46+09:00",
     downloads: {
