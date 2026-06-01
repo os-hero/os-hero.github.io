@@ -3,6 +3,40 @@ const PAGE_SIZE = 6;
 
 const releases = [
   {
+    version: "0.1.19",
+    releasedAt: "2026-06-02T00:32:12+09:00",
+    downloads: {
+      mac: "OS Hero-0.1.19-arm64.dmg",
+      win: "OS Hero Setup 0.1.19.exe"
+    },
+    copy: {
+      en: {
+        summary: "Fixed Inventory scrolling so item selection no longer jumps back to the top.",
+        notes: [
+          "Inventory remembers the current item list scroll position before re-rendering a selection.",
+          "Selecting items, switching tabs, and equipping items restores the relevant list position.",
+          "This reduces repeated scrolling fatigue when browsing large RPG item lists."
+        ]
+      },
+      ko: {
+        summary: "인벤토리 아이템 선택 시 스크롤이 맨 위로 돌아가는 문제를 수정했습니다.",
+        notes: [
+          "Inventory가 선택 재렌더 전에 현재 아이템 목록 스크롤 위치를 기억합니다.",
+          "아이템 선택, 탭 변경, 착용 후에도 해당 목록 위치를 복원합니다.",
+          "RPG 아이템 목록을 탐색할 때 반복해서 다시 스크롤해야 하는 피로를 줄였습니다."
+        ]
+      },
+      zh: {
+        summary: "修复背包选择物品时滚动条跳回顶部的问题。",
+        notes: [
+          "背包在选择重新渲染前会记住当前物品列表的滚动位置。",
+          "选择物品、切换标签和装备物品后会恢复对应列表位置。",
+          "浏览较长的 RPG 物品列表时，不再需要反复重新滚动。"
+        ]
+      }
+    }
+  },
+  {
     version: "0.1.18",
     releasedAt: "2026-05-31T23:45:13+09:00",
     downloads: {
