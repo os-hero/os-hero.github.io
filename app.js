@@ -3,6 +3,40 @@ const PAGE_SIZE = 6;
 
 const releases = [
   {
+    version: "0.1.20",
+    releasedAt: "2026-06-02T13:59:05+09:00",
+    downloads: {
+      mac: "OS Hero-0.1.20-arm64.dmg",
+      win: "OS Hero Setup 0.1.20.exe"
+    },
+    copy: {
+      en: {
+        summary: "Added the first OS Gold MVP with runtime rewards and Inventory display.",
+        notes: [
+          "OS Gold now accumulates locally while OS Hero is running: 1 gold per 5 minutes.",
+          "Inventory shows the current OS Gold balance at the top of the window.",
+          "Gold is saved in a local wallet file and capped at 999,999,999 gold."
+        ]
+      },
+      ko: {
+        summary: "실행 시간 기반 OS 골드 1차 기능과 인벤토리 표시를 추가했습니다.",
+        notes: [
+          "OS Hero가 실행 중인 시간을 기준으로 5분당 1골드가 로컬에 적립됩니다.",
+          "인벤토리 화면 상단에서 현재 OS 골드 보유량을 숫자로 확인할 수 있습니다.",
+          "골드는 로컬 지갑 파일에 저장되며 최대 999,999,999골드까지 보유할 수 있습니다."
+        ]
+      },
+      zh: {
+        summary: "新增 OS 金币第一版：按运行时间奖励并在背包显示。",
+        notes: [
+          "OS Hero 运行时会在本地累积 OS 金币：每 5 分钟 1 金币。",
+          "背包窗口顶部会显示当前 OS 金币余额。",
+          "金币保存在本地钱包文件中，上限为 999,999,999。"
+        ]
+      }
+    }
+  },
+  {
     version: "0.1.19",
     releasedAt: "2026-06-02T00:32:12+09:00",
     downloads: {
