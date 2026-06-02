@@ -1,11 +1,11 @@
-version: 0.1.19
+version: 0.1.20
 files:
-  - url: OS Hero-0.1.19-arm64-mac.zip
-    sha512: y4TxXtz3ASedzIxdD6hN5pm7BQi8Iq2D6dDxyzwkGjEx2dogYTYhw0qZqdNTozcS4Wj+ei095W1CRWHwJTN93Q==
-    size: 98486606
-  - url: OS Hero-0.1.19-arm64.dmg
-    sha512: 1u3QffpFXUqAOlIYpG13uwJv64yNYnqwtWbrXTEhW2HRnE/zsv69eZeVqQ9A08ERo22OJsZ40v14+qCfZFsxgA==
-    size: 102943052
-path: OS Hero-0.1.19-arm64-mac.zip
-sha512: y4TxXtz3ASedzIxdD6hN5pm7BQi8Iq2D6dDxyzwkGjEx2dogYTYhw0qZqdNTozcS4Wj+ei095W1CRWHwJTN93Q==
-releaseDate: '2026-06-01T15:31:26.838Z'
+  - url: OS Hero-0.1.20-arm64-mac.zip
+    sha512: SKcT7kcFrTUvirpV0rX1Zx24pPjWdwMAn735O3Ci907QGeuxcpSQlq3rZBXJBBz9glCi3o1UHgvIcMGC+XD1PQ==
+    size: 98487766
+  - url: OS Hero-0.1.20-arm64.dmg
+    sha512: nVGjDg4mSALmN1UBFVbZBKfiWYbg7bKyKhcvalcHniASlq1HtUBJraIpY0et4H9RZdVzOnx83ZepMEe1US/V3A==
+    size: 102942303
+path: OS Hero-0.1.20-arm64-mac.zip
+sha512: SKcT7kcFrTUvirpV0rX1Zx24pPjWdwMAn735O3Ci907QGeuxcpSQlq3rZBXJBBz9glCi3o1UHgvIcMGC+XD1PQ==
+releaseDate: '2026-06-02T04:56:44.492Z'
