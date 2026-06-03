@@ -6,8 +6,7 @@ const releases = [
     version: "0.1.20",
     releasedAt: "2026-06-02T13:59:05+09:00",
     downloads: {
-      mac: "OS Hero-0.1.20-arm64.dmg",
-      win: "OS Hero Setup 0.1.20.exe"
+      mac: "OS Hero-0.1.20-arm64.dmg"
     },
     copy: {
       en: {
@@ -40,8 +39,7 @@ const releases = [
     version: "0.1.19",
     releasedAt: "2026-06-02T00:32:12+09:00",
     downloads: {
-      mac: "OS Hero-0.1.19-arm64.dmg",
-      win: "OS Hero Setup 0.1.19.exe"
+      mac: "OS Hero-0.1.19-arm64.dmg"
     },
     copy: {
       en: {
@@ -74,8 +72,7 @@ const releases = [
     version: "0.1.18",
     releasedAt: "2026-05-31T23:45:13+09:00",
     downloads: {
-      mac: "OS Hero-0.1.18-arm64.dmg",
-      win: "OS Hero Setup 0.1.18.exe"
+      mac: "OS Hero-0.1.18-arm64.dmg"
     },
     copy: {
       en: {
@@ -114,15 +111,13 @@ const messages = {
     "nav.language": "Language",
     "home.eyebrow": "Pixel companion for your desktop",
     "home.title": "OS Hero",
-    "home.lead": "Adventure with a small companion that lives in your menu bar or system tray. OS Hero reacts to your CPU activity and stays ready while you work.",
+    "home.lead": "Adventure with a small companion that lives in your macOS menu bar. OS Hero reacts to your CPU activity and stays ready while you work.",
     "home.downloadMac": "Download for macOS",
-    "home.downloadWin": "Download for Windows",
-    "home.downloadBoth": "Choose a download",
     "home.latestVersion": "Latest version: {version}.",
     "home.archive": "View version archive",
     "home.menuEyebrow": "Tray menu guide",
     "home.menuTitle": "Everything starts from the OS Hero icon",
-    "home.menuLead": "OS Hero stays out of the way until you open the menu bar or system tray icon. These are the main places you will use after installing the app.",
+    "home.menuLead": "OS Hero stays out of the way until you open the menu bar icon. These are the main places you will use after installing the app.",
     "install.title": "Install",
     "install.description": "Download the latest OS Hero release or browse previous versions. The latest buttons always point to the newest published build.",
     "install.version": "Version",
@@ -130,7 +125,6 @@ const messages = {
     "install.summary": "Patch summary",
     "install.download": "Download",
     "install.mac": "macOS",
-    "install.win": "Windows",
     "install.previous": "Previous",
     "install.next": "Next",
     "detail.back": "Back to install",
@@ -153,15 +147,13 @@ const messages = {
     "nav.language": "언어",
     "home.eyebrow": "데스크톱을 위한 픽셀 동반자",
     "home.title": "OS 히어로",
-    "home.lead": "PC에서 나와 함께 모험할 작은 동반자를 만나보세요. OS Hero는 메뉴 막대와 시스템 트레이에 머물며 CPU 상태에 맞춰 움직입니다.",
+    "home.lead": "Mac에서 나와 함께 모험할 작은 동반자를 만나보세요. OS Hero는 macOS 메뉴 막대에 머물며 CPU 상태에 맞춰 움직입니다.",
     "home.downloadMac": "macOS용 다운로드",
-    "home.downloadWin": "Windows용 다운로드",
-    "home.downloadBoth": "다운로드 선택",
     "home.latestVersion": "최신 버전: {version}.",
     "home.archive": "버전 아카이브 보기",
     "home.menuEyebrow": "트레이 메뉴 안내",
     "home.menuTitle": "모든 기능은 OS Hero 아이콘에서 시작됩니다",
-    "home.menuLead": "OS Hero는 메뉴 막대 또는 시스템 트레이에 조용히 머물다가, 아이콘을 클릭했을 때 필요한 화면을 열어 줍니다. 설치 후 가장 자주 쓰게 될 메뉴는 아래와 같습니다.",
+    "home.menuLead": "OS Hero는 macOS 메뉴 막대에 조용히 머물다가, 아이콘을 클릭했을 때 필요한 화면을 열어 줍니다. 설치 후 가장 자주 쓰게 될 메뉴는 아래와 같습니다.",
     "install.title": "설치",
     "install.description": "최신 OS Hero 릴리스를 받거나 이전 버전을 확인하세요. 최신 다운로드 버튼은 항상 가장 최근 배포 파일을 가리킵니다.",
     "install.version": "버전",
@@ -169,7 +161,6 @@ const messages = {
     "install.summary": "패치노트 요약",
     "install.download": "다운로드",
     "install.mac": "macOS",
-    "install.win": "Windows",
     "install.previous": "이전",
     "install.next": "다음",
     "detail.back": "설치로 돌아가기",
@@ -192,15 +183,13 @@ const messages = {
     "nav.language": "语言",
     "home.eyebrow": "桌面上的像素伙伴",
     "home.title": "OS 英雄",
-    "home.lead": "让一位小小的像素伙伴陪你在电脑上一起冒险。OS Hero 常驻菜单栏或系统托盘，并会随着 CPU 状态改变动作节奏。",
+    "home.lead": "让一位小小的像素伙伴陪你在 Mac 上一起冒险。OS Hero 常驻 macOS 菜单栏，并会随着 CPU 状态改变动作节奏。",
     "home.downloadMac": "下载 macOS 版",
-    "home.downloadWin": "下载 Windows 版",
-    "home.downloadBoth": "选择下载",
     "home.latestVersion": "最新版本：{version}。",
     "home.archive": "查看版本归档",
     "home.menuEyebrow": "托盘菜单指南",
     "home.menuTitle": "所有功能都从 OS Hero 图标开始",
-    "home.menuLead": "OS Hero 会安静地停留在菜单栏或系统托盘中。点击图标后，你可以从这些菜单进入主要功能。",
+    "home.menuLead": "OS Hero 会安静地停留在 macOS 菜单栏中。点击图标后，你可以从这些菜单进入主要功能。",
     "install.title": "安装",
     "install.description": "下载最新 OS Hero 版本，或浏览历史版本。最新下载按钮会始终指向当前发布的最新版。",
     "install.version": "版本",
@@ -208,7 +197,6 @@ const messages = {
     "install.summary": "更新摘要",
     "install.download": "下载",
     "install.mac": "macOS",
-    "install.win": "Windows",
     "install.previous": "上一页",
     "install.next": "下一页",
     "detail.back": "返回安装页",
@@ -359,9 +347,6 @@ function getMenuGuideItems() {
 
 function detectPlatform() {
   const platform = `${navigator.userAgentData && navigator.userAgentData.platform ? navigator.userAgentData.platform : ""} ${navigator.platform || ""} ${navigator.userAgent || ""}`.toLowerCase();
-  if (platform.includes("win")) {
-    return "win";
-  }
   if (platform.includes("mac")) {
     return "mac";
   }
@@ -402,16 +387,14 @@ function renderLayout(content) {
 }
 
 function downloadButton(release, platform, className = "button") {
-  const label = platform === "win" ? t("home.downloadWin") : t("home.downloadMac");
+  const label = t("home.downloadMac");
   return `<a class="${className}" href="${fileUrl(release.downloads[platform])}" download>${label}</a>`;
 }
 
 function renderHome() {
   const latest = releases[0];
-  const platform = detectPlatform();
-  const primaryActions = platform
-    ? downloadButton(latest, platform)
-    : `${downloadButton(latest, "mac")} ${downloadButton(latest, "win", "button secondary")}`;
+  const platform = detectPlatform() || "mac";
+  const primaryActions = downloadButton(latest, platform);
   const menuGuideItems = getMenuGuideItems();
 
   renderLayout(`
@@ -468,7 +451,6 @@ function renderInstall() {
         <td>
           <div class="table-actions">
             <a class="small-link" href="${fileUrl(release.downloads.mac)}" download data-download>${t("install.mac")}</a>
-            <a class="small-link" href="${fileUrl(release.downloads.win)}" download data-download>${t("install.win")}</a>
           </div>
         </td>
       </tr>
@@ -484,8 +466,7 @@ function renderInstall() {
             <p>${t("install.description")}</p>
           </div>
           <div class="actions">
-            ${downloadButton(releases[0], "mac", "button secondary")}
-            ${downloadButton(releases[0], "win")}
+            ${downloadButton(releases[0], "mac")}
           </div>
         </div>
         <div class="table-wrap">
@@ -554,8 +535,7 @@ function renderVersion(version) {
         </article>
         <aside class="side-panel">
           <h3>${t("detail.downloads")}</h3>
-          ${downloadButton(release, "mac", "button secondary")}
-          ${downloadButton(release, "win")}
+          ${downloadButton(release, "mac")}
         </aside>
       </div>
     </section>
