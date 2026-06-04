@@ -3,6 +3,39 @@ const PAGE_SIZE = 6;
 
 const releases = [
   {
+    version: "0.1.21",
+    releasedAt: "2026-06-05T03:48:00+09:00",
+    downloads: {
+      mac: "OS Hero-0.1.21-arm64.dmg"
+    },
+    copy: {
+      en: {
+        summary: "Introduced the asset-driven RPG hero prototype with new clothing layers.",
+        notes: [
+          "Hero rendering now composites generated 32x32 sprite sheets from the v2 RPG asset package.",
+          "Hero customization supports body type, hair style, skin color, hair color, eye type, and eye color.",
+          "Inventory now includes animated warrior, mage, rogue, and paladin clothing items."
+        ]
+      },
+      ko: {
+        summary: "에셋 기반 RPG 히어로 프로토타입과 새 의상 레이어를 추가했습니다.",
+        notes: [
+          "v2 RPG 에셋 패키지에서 생성한 32x32 스프라이트 시트를 합성해 히어로를 렌더링합니다.",
+          "히어로 커스터마이징에서 바디 타입, 헤어 스타일, 피부색, 머리색, 눈 타입, 눈 색상을 설정할 수 있습니다.",
+          "인벤토리에 전사, 마법사, 도적, 팔라딘 애니메이션 의상 아이템을 추가했습니다."
+        ]
+      },
+      zh: {
+        summary: "加入基于资源的 RPG 英雄原型和新的服装图层。",
+        notes: [
+          "英雄渲染现在会合成由 v2 RPG 资源包生成的 32x32 精灵表。",
+          "英雄自定义支持身体类型、发型、肤色、发色、眼睛类型和眼睛颜色。",
+          "背包新增战士、法师、盗贼和圣骑士动画服装。"
+        ]
+      }
+    }
+  },
+  {
     version: "0.1.20",
     releasedAt: "2026-06-02T13:59:05+09:00",
     downloads: {
