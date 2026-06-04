@@ -295,6 +295,12 @@ const menuGuides = {
   ]
 };
 
+const developerNames = {
+  en: "Chungbok Lee",
+  ko: "이충복",
+  zh: "李忠馥"
+};
+
 let language = getInitialLanguage();
 let page = 1;
 
@@ -343,6 +349,10 @@ function getReleaseCopy(release) {
 
 function getMenuGuideItems() {
   return menuGuides[language] || menuGuides.en;
+}
+
+function developerName() {
+  return developerNames[language] || developerNames.en;
 }
 
 function detectPlatform() {
@@ -552,7 +562,7 @@ function renderContact() {
         <dl class="contact-list">
           <div class="contact-row">
             <dt>${t("contact.developer")}</dt>
-            <dd>이충복</dd>
+            <dd>${developerName()}</dd>
           </div>
           <div class="contact-row">
             <dt>${t("contact.contact")}</dt>
