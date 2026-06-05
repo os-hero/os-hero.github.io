@@ -3,6 +3,39 @@ const PAGE_SIZE = 6;
 
 const releases = [
   {
+    version: "1.2.0",
+    releasedAt: "2026-06-05T14:44:00+09:00",
+    downloads: {
+      mac: "OS Hero-1.2.0-arm64.dmg"
+    },
+    copy: {
+      en: {
+        summary: "Official rollback to the stable OS Gold baseline.",
+        notes: [
+          "Restored the stable OS Gold runtime and Inventory experience from the previous production baseline.",
+          "Removed the experimental RPG asset-driven hero changes from the public release channel.",
+          "The public update feed now points to the macOS 1.2.0 rollback build."
+        ]
+      },
+      ko: {
+        summary: "안정적인 OS 골드 기준 버전으로 공식 롤백했습니다.",
+        notes: [
+          "이전 프로덕션 기준의 안정적인 OS 골드 런타임과 인벤토리 경험으로 되돌렸습니다.",
+          "실험 중이던 RPG 에셋 기반 히어로 변경은 공개 릴리즈 채널에서 제외했습니다.",
+          "공개 업데이트 피드는 macOS 1.2.0 롤백 빌드를 가리킵니다."
+        ]
+      },
+      zh: {
+        summary: "正式回滚到稳定的 OS 金币基准版本。",
+        notes: [
+          "恢复到上一版生产基准的稳定 OS 金币运行时和背包体验。",
+          "从公开发布通道移除了实验性的 RPG 资源英雄改动。",
+          "公开更新源现在指向 macOS 1.2.0 回滚构建。"
+        ]
+      }
+    }
+  },
+  {
     version: "0.1.21",
     releasedAt: "2026-06-05T03:48:00+09:00",
     downloads: {
