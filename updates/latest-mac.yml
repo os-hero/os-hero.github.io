@@ -1,11 +1,11 @@
-version: 1.2.0
+version: 1.3.0
 files:
-  - url: OS Hero-1.2.0-arm64-mac.zip
-    sha512: IlTBjAvu4A4wIlz5uTmTaXXw7u9jrgf3WaOHxHFMS78AQCY/X4wUktSDln+xN9glHBXKOymCtN/jIumo8O3CIw==
-    size: 98487813
-  - url: OS Hero-1.2.0-arm64.dmg
-    sha512: RYXIntgp/uj9Hq1JVftwtPeto/3461yIQRBbIJ93N6OBeGpenxwP6zJ46fORFPyjvUVOm5EYIC3orMSJE3PuZg==
-    size: 102942304
-path: OS Hero-1.2.0-arm64-mac.zip
-sha512: IlTBjAvu4A4wIlz5uTmTaXXw7u9jrgf3WaOHxHFMS78AQCY/X4wUktSDln+xN9glHBXKOymCtN/jIumo8O3CIw==
-releaseDate: '2026-06-05T05:42:58.289Z'
+  - url: https://github.com/os-hero/os-hero/releases/download/v1.3.0/OS-Hero-1.3.0-arm64.zip
+    sha512: zgIjONsi2mU8IAbruLfUCf+3+1feQM8HVmlLduq5KtI4YoRRG+wjPKVywFeJ0qLZqYBQEZXm4NqZu6p9QBJuXw==
+    size: 98559854
+  - url: https://github.com/os-hero/os-hero/releases/download/v1.3.0/OS-Hero-1.3.0-arm64.dmg
+    sha512: M1u4aIh5d56ydZ3tnmx9iZjZ0Ux+E7P7IBo8uS8LgBwRP9MtHogC11cRmMxqDtzHotv39382xoI4P2JrzFF+vg==
+    size: 103070871
+path: https://github.com/os-hero/os-hero/releases/download/v1.3.0/OS-Hero-1.3.0-arm64.zip
+sha512: zgIjONsi2mU8IAbruLfUCf+3+1feQM8HVmlLduq5KtI4YoRRG+wjPKVywFeJ0qLZqYBQEZXm4NqZu6p9QBJuXw==
+releaseDate: '2026-10-05T17:39:50.439Z'
