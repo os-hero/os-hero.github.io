@@ -430,6 +430,7 @@ function detectPlatform() {
 }
 
 function fileUrl(fileName) {
+  if (fileName.startsWith("https://github.com/os-hero/os-hero/releases/download/")) return fileName;
   return `${DOWNLOAD_BASE}${encodeURIComponent(fileName).replace(/%2F/g, "/")}`;
 }
 
@@ -707,4 +708,24 @@ document.addEventListener("click", (event) => {
 });
 
 window.addEventListener("popstate", renderRoute);
-renderRoute();
+async function loadReleases() {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 5000);
+  try {
+    const response = await fetch("/releases.json", { cache: "no-cache", signal: controller.signal });
+    if (!response.ok) throw new Error("Release registry unavailable");
+    const records = await response.json();
+    const valid = Array.isArray(records) && records.length && records.every(record =>
+      /^\d+\.\d+\.\d+$/.test(record.version) && typeof record.downloads?.mac === "string" &&
+      ["en", "ko", "zh"].every(language => typeof record.copy?.[language]?.summary === "string" &&
+        Array.isArray(record.copy[language].notes) && record.copy[language].notes.every(note => typeof note === "string")));
+    if (!valid) throw new Error("Invalid release registry");
+    releases.splice(0, releases.length, ...records);
+  } catch (error) {
+    console.warn("Using bundled release information:", error.message);
+  } finally {
+    clearTimeout(timeout);
+  }
+  renderRoute();
+}
+loadReleases();

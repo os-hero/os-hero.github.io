@@ -1,0 +1,167 @@
+[
+  {
+    "version": "1.2.0",
+    "releasedAt": "2026-06-05T14:44:00+09:00",
+    "downloads": {
+      "mac": "OS Hero-1.2.0-arm64.dmg"
+    },
+    "copy": {
+      "en": {
+        "summary": "Official rollback to the stable OS Gold baseline.",
+        "notes": [
+          "Restored the stable OS Gold runtime and Inventory experience from the previous production baseline.",
+          "Removed the experimental RPG asset-driven hero changes from the public release channel.",
+          "The public update feed now points to the macOS 1.2.0 rollback build."
+        ]
+      },
+      "ko": {
+        "summary": "안정적인 OS 골드 기준 버전으로 공식 롤백했습니다.",
+        "notes": [
+          "이전 프로덕션 기준의 안정적인 OS 골드 런타임과 인벤토리 경험으로 되돌렸습니다.",
+          "실험 중이던 RPG 에셋 기반 히어로 변경은 공개 릴리즈 채널에서 제외했습니다.",
+          "공개 업데이트 피드는 macOS 1.2.0 롤백 빌드를 가리킵니다."
+        ]
+      },
+      "zh": {
+        "summary": "正式回滚到稳定的 OS 金币基准版本。",
+        "notes": [
+          "恢复到上一版生产基准的稳定 OS 金币运行时和背包体验。",
+          "从公开发布通道移除了实验性的 RPG 资源英雄改动。",
+          "公开更新源现在指向 macOS 1.2.0 回滚构建。"
+        ]
+      }
+    }
+  },
+  {
+    "version": "0.1.21",
+    "releasedAt": "2026-06-05T03:48:00+09:00",
+    "downloads": {
+      "mac": "OS Hero-0.1.21-arm64.dmg"
+    },
+    "copy": {
+      "en": {
+        "summary": "Introduced the asset-driven RPG hero prototype with new clothing layers.",
+        "notes": [
+          "Hero rendering now composites generated 32x32 sprite sheets from the v2 RPG asset package.",
+          "Hero customization supports body type, hair style, skin color, hair color, eye type, and eye color.",
+          "Inventory now includes animated warrior, mage, rogue, and paladin clothing items."
+        ]
+      },
+      "ko": {
+        "summary": "에셋 기반 RPG 히어로 프로토타입과 새 의상 레이어를 추가했습니다.",
+        "notes": [
+          "v2 RPG 에셋 패키지에서 생성한 32x32 스프라이트 시트를 합성해 히어로를 렌더링합니다.",
+          "히어로 커스터마이징에서 바디 타입, 헤어 스타일, 피부색, 머리색, 눈 타입, 눈 색상을 설정할 수 있습니다.",
+          "인벤토리에 전사, 마법사, 도적, 팔라딘 애니메이션 의상 아이템을 추가했습니다."
+        ]
+      },
+      "zh": {
+        "summary": "加入基于资源的 RPG 英雄原型和新的服装图层。",
+        "notes": [
+          "英雄渲染现在会合成由 v2 RPG 资源包生成的 32x32 精灵表。",
+          "英雄自定义支持身体类型、发型、肤色、发色、眼睛类型和眼睛颜色。",
+          "背包新增战士、法师、盗贼和圣骑士动画服装。"
+        ]
+      }
+    }
+  },
+  {
+    "version": "0.1.20",
+    "releasedAt": "2026-06-02T13:59:05+09:00",
+    "downloads": {
+      "mac": "OS Hero-0.1.20-arm64.dmg"
+    },
+    "copy": {
+      "en": {
+        "summary": "Added the first OS Gold MVP with runtime rewards and Inventory display.",
+        "notes": [
+          "OS Gold now accumulates locally while OS Hero is running: 1 gold per 5 minutes.",
+          "Inventory shows the current OS Gold balance at the top of the window.",
+          "Gold is saved in a local wallet file and capped at 999,999,999 gold."
+        ]
+      },
+      "ko": {
+        "summary": "실행 시간 기반 OS 골드 1차 기능과 인벤토리 표시를 추가했습니다.",
+        "notes": [
+          "OS Hero가 실행 중인 시간을 기준으로 5분당 1골드가 로컬에 적립됩니다.",
+          "인벤토리 화면 상단에서 현재 OS 골드 보유량을 숫자로 확인할 수 있습니다.",
+          "골드는 로컬 지갑 파일에 저장되며 최대 999,999,999골드까지 보유할 수 있습니다."
+        ]
+      },
+      "zh": {
+        "summary": "新增 OS 金币第一版：按运行时间奖励并在背包显示。",
+        "notes": [
+          "OS Hero 运行时会在本地累积 OS 金币：每 5 分钟 1 金币。",
+          "背包窗口顶部会显示当前 OS 金币余额。",
+          "金币保存在本地钱包文件中，上限为 999,999,999。"
+        ]
+      }
+    }
+  },
+  {
+    "version": "0.1.19",
+    "releasedAt": "2026-06-02T00:32:12+09:00",
+    "downloads": {
+      "mac": "OS Hero-0.1.19-arm64.dmg"
+    },
+    "copy": {
+      "en": {
+        "summary": "Fixed Inventory scrolling so item selection no longer jumps back to the top.",
+        "notes": [
+          "Inventory remembers the current item list scroll position before re-rendering a selection.",
+          "Selecting items, switching tabs, and equipping items restores the relevant list position.",
+          "This reduces repeated scrolling fatigue when browsing large RPG item lists."
+        ]
+      },
+      "ko": {
+        "summary": "인벤토리 아이템 선택 시 스크롤이 맨 위로 돌아가는 문제를 수정했습니다.",
+        "notes": [
+          "Inventory가 선택 재렌더 전에 현재 아이템 목록 스크롤 위치를 기억합니다.",
+          "아이템 선택, 탭 변경, 착용 후에도 해당 목록 위치를 복원합니다.",
+          "RPG 아이템 목록을 탐색할 때 반복해서 다시 스크롤해야 하는 피로를 줄였습니다."
+        ]
+      },
+      "zh": {
+        "summary": "修复背包选择物品时滚动条跳回顶部的问题。",
+        "notes": [
+          "背包在选择重新渲染前会记住当前物品列表的滚动位置。",
+          "选择物品、切换标签和装备物品后会恢复对应列表位置。",
+          "浏览较长的 RPG 物品列表时，不再需要反复重新滚动。"
+        ]
+      }
+    }
+  },
+  {
+    "version": "0.1.18",
+    "releasedAt": "2026-05-31T23:45:13+09:00",
+    "downloads": {
+      "mac": "OS Hero-0.1.18-arm64.dmg"
+    },
+    "copy": {
+      "en": {
+        "summary": "Fixed the Inventory window width so it stays stable while selecting items.",
+        "notes": [
+          "Inventory item selection no longer triggers automatic window resizing.",
+          "Switching Inventory tabs and equipping items keeps the window width fixed.",
+          "Other app windows keep their existing content fitting behavior."
+        ]
+      },
+      "ko": {
+        "summary": "인벤토리에서 아이템을 선택할 때 창 폭이 줄어드는 문제를 수정했습니다.",
+        "notes": [
+          "Inventory 아이템 선택 시 창 크기 자동 맞춤을 실행하지 않도록 수정했습니다.",
+          "Inventory 탭 변경과 착용/해제를 반복해도 창 폭이 고정됩니다.",
+          "다른 앱 창의 기존 콘텐츠 맞춤 동작은 유지했습니다."
+        ]
+      },
+      "zh": {
+        "summary": "修复背包中选择物品时窗口宽度变小的问题。",
+        "notes": [
+          "选择背包物品时不再触发自动窗口缩放。",
+          "切换背包标签和装备物品时窗口宽度保持固定。",
+          "其他应用窗口保留原有的内容适配行为。"
+        ]
+      }
+    }
+  }
+]
