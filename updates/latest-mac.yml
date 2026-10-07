@@ -1,11 +1,11 @@
-version: 1.3.1
+version: 1.4.0
 files:
-  - url: https://github.com/os-hero/os-hero/releases/download/v1.3.1/OS-Hero-1.3.1-arm64.zip
-    sha512: x4b/71BKaGMJyNm2oLpIUA08m8onnGwtmfJfSJdhfotEKIXtn8Nt1MReEEue8ydaTPNaXaCFHtbagMktYlnYkw==
-    size: 98564360
-  - url: https://github.com/os-hero/os-hero/releases/download/v1.3.1/OS-Hero-1.3.1-arm64.dmg
-    sha512: X1aOTx4wmQ4lPkSl//kVXGDypnBNmYdsnrUKMn8UZOpb+AkQUoLmS2CbPfB9sxgwWs/lukju3vEUfb5++6kkgA==
-    size: 103079067
-path: https://github.com/os-hero/os-hero/releases/download/v1.3.1/OS-Hero-1.3.1-arm64.zip
-sha512: x4b/71BKaGMJyNm2oLpIUA08m8onnGwtmfJfSJdhfotEKIXtn8Nt1MReEEue8ydaTPNaXaCFHtbagMktYlnYkw==
-releaseDate: '2026-10-06T11:57:56.759Z'
+  - url: https://github.com/os-hero/os-hero/releases/download/v1.4.0/OS-Hero-1.4.0-arm64.zip
+    sha512: GtxkjQRio0k/GpWWysxsLy9ToyVUgw6uISsvt0yEYGUkdtSOrFYyX43a3XMeHSQOEdYysxFw6aZk4bj7qdqW0w==
+    size: 98566127
+  - url: https://github.com/os-hero/os-hero/releases/download/v1.4.0/OS-Hero-1.4.0-arm64.dmg
+    sha512: /0/uPv9cwMfnATth6Tvjm3pt8jdhfT5e7gFhJ4vQijusgOJ4pjMLIIGsWcQrMyXFnppSC/p+6NfRJbP4E3FOgg==
+    size: 103082535
+path: https://github.com/os-hero/os-hero/releases/download/v1.4.0/OS-Hero-1.4.0-arm64.zip
+sha512: GtxkjQRio0k/GpWWysxsLy9ToyVUgw6uISsvt0yEYGUkdtSOrFYyX43a3XMeHSQOEdYysxFw6aZk4bj7qdqW0w==
+releaseDate: '2026-10-07T01:00:57.377Z'
