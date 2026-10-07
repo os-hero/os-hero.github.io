@@ -1,5 +1,41 @@
 [
   {
+    "version": "1.4.1",
+    "releasedAt": "2026-10-07T13:12:04.216Z",
+    "downloads": {
+      "mac": "https://github.com/os-hero/os-hero/releases/download/v1.4.1/OS-Hero-1.4.1-arm64.dmg"
+    },
+    "copy": {
+      "ko": {
+        "summary": "메뉴바 히어로의 원본 크기를 복원하고 흰색 외곽선을 은은하게 조정했습니다.",
+        "notes": [
+          "macOS 메뉴바 캐릭터를 원본 24px 크기로 복원했습니다. 외곽선 공간을 위해 캐릭터를 축소하지 않습니다.",
+          "기존 1pt 여유를 포함한 전체 출력은 26pt이며, Retina에서는 52px로 선명하게 표시합니다.",
+          "메뉴바 전용 1pt 흰색 외곽선의 불투명도를 20%로 낮췄습니다.",
+          "앱 내부 히어로와 아이템, 애니메이션, 저장 데이터 및 자동 업데이트 정책은 그대로 유지합니다."
+        ]
+      },
+      "en": {
+        "summary": "Restored the original menu-bar Hero size with a subtler white outline.",
+        "notes": [
+          "The macOS menu-bar Hero is restored to its original 24px size, without shrinking it to reserve outline space.",
+          "The full image is 26pt including the existing 1pt padding, with a crisp 52px Retina representation.",
+          "The menu-bar-only 1pt white outline is reduced to 20% opacity.",
+          "In-app Heroes, items, animation, saved data and automatic-update policies remain unchanged."
+        ]
+      },
+      "zh": {
+        "summary": "恢复菜单栏英雄的原始尺寸，并减淡白色外轮廓。",
+        "notes": [
+          "macOS 菜单栏英雄恢复为原始的 24px 尺寸，不再为外轮廓预留空间而缩小角色。",
+          "包含原有 1pt 边距的完整图像为 26pt，Retina 图像为 52px。",
+          "仅用于菜单栏的 1pt 白色外轮廓调整为 20% 不透明度。",
+          "应用内英雄、物品、动画、保存数据和自动更新规则保持不变。"
+        ]
+      }
+    }
+  },
+  {
     "version": "1.4.0",
     "releasedAt": "2026-10-07T01:00:57.377Z",
     "downloads": {
