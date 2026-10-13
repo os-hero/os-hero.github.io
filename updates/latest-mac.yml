@@ -1,11 +1,11 @@
-version: 1.6.2
+version: 1.6.3
 files:
-  - url: https://github.com/os-hero/os-hero/releases/download/v1.6.2/OS-Hero-1.6.2-arm64.zip
-    sha512: RzVHH/V0xsqK7ECB5xec24iwDM0L+OhVimVSkoWcaYdXUyU+rZve0Btm24hxXZkDKypqKi2y9rB11o3K0Z3QfA==
-    size: 98577957
-  - url: https://github.com/os-hero/os-hero/releases/download/v1.6.2/OS-Hero-1.6.2-arm64.dmg
-    sha512: XMv55t+8AEH7Mm9jh+YAOIn6YtgIocWNkGP2DvJiaC5qIS1gRUOylPjCorKwD5/vXQkazgQQ3ldxs3lCgMPSHg==
-    size: 103080930
-path: https://github.com/os-hero/os-hero/releases/download/v1.6.2/OS-Hero-1.6.2-arm64.zip
-sha512: RzVHH/V0xsqK7ECB5xec24iwDM0L+OhVimVSkoWcaYdXUyU+rZve0Btm24hxXZkDKypqKi2y9rB11o3K0Z3QfA==
-releaseDate: '2026-10-10T03:23:02.745Z'
+  - url: https://github.com/os-hero/os-hero/releases/download/v1.6.3/OS-Hero-1.6.3-arm64.zip
+    sha512: HsVcGyRelT6g9k43wMY3dNE5gROmP/KgFpYD6lVlr25wbE8hU84ebdl8zqW9vNY2OuxX05UtEeOoz0AnnrwjcQ==
+    size: 98850277
+  - url: https://github.com/os-hero/os-hero/releases/download/v1.6.3/OS-Hero-1.6.3-arm64.dmg
+    sha512: fgocvYJ7/UolnRXLMDeSJYqr9O1qb2hucRsl5F4vajuXAFwSZNHjw4Px4NF1Q9SVk80EF9/YgvsvAiINFzQv5Q==
+    size: 103371898
+path: https://github.com/os-hero/os-hero/releases/download/v1.6.3/OS-Hero-1.6.3-arm64.zip
+sha512: HsVcGyRelT6g9k43wMY3dNE5gROmP/KgFpYD6lVlr25wbE8hU84ebdl8zqW9vNY2OuxX05UtEeOoz0AnnrwjcQ==
+releaseDate: '2026-10-13T11:32:27.331Z'
