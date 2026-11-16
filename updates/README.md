@@ -1,7 +1,7 @@
 # OS Hero Updates
 
-Stable version: 1.6.4
+Stable version: 1.7.0
 
 Compatibility feed: https://os-hero.github.io/updates/latest-mac.yml
 
-New signed installers and checksums are hosted at https://github.com/os-hero/os-hero/releases/tag/v1.6.4. Legacy downloads remain here. Do not replace artifacts for a published version.
+New signed installers and checksums are hosted at https://github.com/os-hero/os-hero/releases/tag/v1.7.0. Legacy downloads remain here. Do not replace artifacts for a published version.
