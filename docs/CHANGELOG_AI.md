@@ -2,11 +2,11 @@
 
 ## 2026-11-18 (GA4 Integration)
 
-- Prepared opt-in GA4 page views and version/placement-specific `download_click` events, with Korean/English/Chinese privacy controls.
+- Deployed opt-in GA4 page views and version/placement-specific `download_click` events, with Korean/English/Chinese privacy controls.
 - Added production-host gating, duplicate route-view prevention, sanitized URLs and consent withdrawal with cookie cleanup.
 - Configured a dedicated OS Hero GA4 property/stream, five custom dimensions and session-counted download key event. Preserved other account properties and app update feeds.
 - Fixed initial analytics titles on direct version-page entry and sanitized invalid version paths.
-- 47 automated tests passed; consent UI passed 12 language/viewport combinations and browser flows. Production deployment/live receipt verification is the remaining activation step.
+- 47 automated tests passed; consent UI passed 12 language/viewport combinations and browser flows. Official-site views, a real installer click, version/location parameters and the key event were verified in GA Realtime. Consent refusal/withdrawal and deployed file integrity passed live QA.
 
 ## 2026-11-17
 

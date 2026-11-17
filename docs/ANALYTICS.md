@@ -2,7 +2,7 @@
 
 ## Status
 
-2026-11-18: GA4 configured and pre-deployment QA passed. Production deployment/live receipt verification is the remaining activation step.
+2026-11-18: GA4 configured, deployed to the official website and verified in GA Realtime with an actual opted-in visit and installer-link click.
 
 - Account: The Mercenary (existing account; other properties unchanged).
 - Property: `OS Hero Website` (`564792353`), Korea reporting time zone, KRW.
@@ -12,6 +12,9 @@
 - Five event-scoped custom dimensions registered. `download_click` is a key event, once per session, with no monetary default value.
 - Event/user data retention set to 2 months; reset on new activity off (GA applies retention setting changes after 24 hours; standard aggregate reports are not subject to this retention control).
 - QA: 47 unit tests passed. Isolated browser QA confirmed consent, withdrawal/reload, all four download placements and SPA views. Notice and dialog passed 12 language/viewport combinations (ko/en/zh, 320/390/768/1440), with no horizontal overflow or console errors.
+- Live QA: home, installation archive and 1.8.0 detail views received; `download_click=1` and download key event `=1` observed. Event parameters `app_version=1.8.0` and `download_location=home_hero` verified in Realtime. The captured snapshot contains four page views, including QA navigation/reload traffic; do not treat this as organic acquisition.
+- Fresh/declined sessions loaded no Google script. Acceptance loaded only this property's tag; withdrawal/reload removed it. Six deployed HTML/JS/CSS files matched the tested commit byte-for-byte. Temporary test server, browser tabs and test DMG were removed; the GA report remains open for the owner.
+- Standard reports/custom dimensions and the stream's activation status can lag behind Realtime. Use Realtime for immediate collection checks; use processed daily reports for business totals. Evidence: ignored `review-artifacts/analytics/`.
 
 ## Activation Checklist
 
