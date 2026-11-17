@@ -1,731 +1,196 @@
-const DOWNLOAD_BASE = "/updates/";
+const LATEST_RELEASE_URL = "https://github.com/os-hero/os-hero/releases/latest";
+const DOWNLOAD_PREFIX = "https://github.com/os-hero/os-hero/releases/download/";
 const PAGE_SIZE = 6;
-
-const releases = [
-  {
-    version: "1.2.0",
-    releasedAt: "2026-06-05T14:44:00+09:00",
-    downloads: {
-      mac: "OS Hero-1.2.0-arm64.dmg"
-    },
-    copy: {
-      en: {
-        summary: "Official rollback to the stable OS Gold baseline.",
-        notes: [
-          "Restored the stable OS Gold runtime and Inventory experience from the previous production baseline.",
-          "Removed the experimental RPG asset-driven hero changes from the public release channel.",
-          "The public update feed now points to the macOS 1.2.0 rollback build."
-        ]
-      },
-      ko: {
-        summary: "안정적인 OS 골드 기준 버전으로 공식 롤백했습니다.",
-        notes: [
-          "이전 프로덕션 기준의 안정적인 OS 골드 런타임과 인벤토리 경험으로 되돌렸습니다.",
-          "실험 중이던 RPG 에셋 기반 히어로 변경은 공개 릴리즈 채널에서 제외했습니다.",
-          "공개 업데이트 피드는 macOS 1.2.0 롤백 빌드를 가리킵니다."
-        ]
-      },
-      zh: {
-        summary: "正式回滚到稳定的 OS 金币基准版本。",
-        notes: [
-          "恢复到上一版生产基准的稳定 OS 金币运行时和背包体验。",
-          "从公开发布通道移除了实验性的 RPG 资源英雄改动。",
-          "公开更新源现在指向 macOS 1.2.0 回滚构建。"
-        ]
-      }
-    }
-  },
-  {
-    version: "0.1.21",
-    releasedAt: "2026-06-05T03:48:00+09:00",
-    downloads: {
-      mac: "OS Hero-0.1.21-arm64.dmg"
-    },
-    copy: {
-      en: {
-        summary: "Introduced the asset-driven RPG hero prototype with new clothing layers.",
-        notes: [
-          "Hero rendering now composites generated 32x32 sprite sheets from the v2 RPG asset package.",
-          "Hero customization supports body type, hair style, skin color, hair color, eye type, and eye color.",
-          "Inventory now includes animated warrior, mage, rogue, and paladin clothing items."
-        ]
-      },
-      ko: {
-        summary: "에셋 기반 RPG 히어로 프로토타입과 새 의상 레이어를 추가했습니다.",
-        notes: [
-          "v2 RPG 에셋 패키지에서 생성한 32x32 스프라이트 시트를 합성해 히어로를 렌더링합니다.",
-          "히어로 커스터마이징에서 바디 타입, 헤어 스타일, 피부색, 머리색, 눈 타입, 눈 색상을 설정할 수 있습니다.",
-          "인벤토리에 전사, 마법사, 도적, 팔라딘 애니메이션 의상 아이템을 추가했습니다."
-        ]
-      },
-      zh: {
-        summary: "加入基于资源的 RPG 英雄原型和新的服装图层。",
-        notes: [
-          "英雄渲染现在会合成由 v2 RPG 资源包生成的 32x32 精灵表。",
-          "英雄自定义支持身体类型、发型、肤色、发色、眼睛类型和眼睛颜色。",
-          "背包新增战士、法师、盗贼和圣骑士动画服装。"
-        ]
-      }
-    }
-  },
-  {
-    version: "0.1.20",
-    releasedAt: "2026-06-02T13:59:05+09:00",
-    downloads: {
-      mac: "OS Hero-0.1.20-arm64.dmg"
-    },
-    copy: {
-      en: {
-        summary: "Added the first OS Gold MVP with runtime rewards and Inventory display.",
-        notes: [
-          "OS Gold now accumulates locally while OS Hero is running: 1 gold per 5 minutes.",
-          "Inventory shows the current OS Gold balance at the top of the window.",
-          "Gold is saved in a local wallet file and capped at 999,999,999 gold."
-        ]
-      },
-      ko: {
-        summary: "실행 시간 기반 OS 골드 1차 기능과 인벤토리 표시를 추가했습니다.",
-        notes: [
-          "OS Hero가 실행 중인 시간을 기준으로 5분당 1골드가 로컬에 적립됩니다.",
-          "인벤토리 화면 상단에서 현재 OS 골드 보유량을 숫자로 확인할 수 있습니다.",
-          "골드는 로컬 지갑 파일에 저장되며 최대 999,999,999골드까지 보유할 수 있습니다."
-        ]
-      },
-      zh: {
-        summary: "新增 OS 金币第一版：按运行时间奖励并在背包显示。",
-        notes: [
-          "OS Hero 运行时会在本地累积 OS 金币：每 5 分钟 1 金币。",
-          "背包窗口顶部会显示当前 OS 金币余额。",
-          "金币保存在本地钱包文件中，上限为 999,999,999。"
-        ]
-      }
-    }
-  },
-  {
-    version: "0.1.19",
-    releasedAt: "2026-06-02T00:32:12+09:00",
-    downloads: {
-      mac: "OS Hero-0.1.19-arm64.dmg"
-    },
-    copy: {
-      en: {
-        summary: "Fixed Inventory scrolling so item selection no longer jumps back to the top.",
-        notes: [
-          "Inventory remembers the current item list scroll position before re-rendering a selection.",
-          "Selecting items, switching tabs, and equipping items restores the relevant list position.",
-          "This reduces repeated scrolling fatigue when browsing large RPG item lists."
-        ]
-      },
-      ko: {
-        summary: "인벤토리 아이템 선택 시 스크롤이 맨 위로 돌아가는 문제를 수정했습니다.",
-        notes: [
-          "Inventory가 선택 재렌더 전에 현재 아이템 목록 스크롤 위치를 기억합니다.",
-          "아이템 선택, 탭 변경, 착용 후에도 해당 목록 위치를 복원합니다.",
-          "RPG 아이템 목록을 탐색할 때 반복해서 다시 스크롤해야 하는 피로를 줄였습니다."
-        ]
-      },
-      zh: {
-        summary: "修复背包选择物品时滚动条跳回顶部的问题。",
-        notes: [
-          "背包在选择重新渲染前会记住当前物品列表的滚动位置。",
-          "选择物品、切换标签和装备物品后会恢复对应列表位置。",
-          "浏览较长的 RPG 物品列表时，不再需要反复重新滚动。"
-        ]
-      }
-    }
-  },
-  {
-    version: "0.1.18",
-    releasedAt: "2026-05-31T23:45:13+09:00",
-    downloads: {
-      mac: "OS Hero-0.1.18-arm64.dmg"
-    },
-    copy: {
-      en: {
-        summary: "Fixed the Inventory window width so it stays stable while selecting items.",
-        notes: [
-          "Inventory item selection no longer triggers automatic window resizing.",
-          "Switching Inventory tabs and equipping items keeps the window width fixed.",
-          "Other app windows keep their existing content fitting behavior."
-        ]
-      },
-      ko: {
-        summary: "인벤토리에서 아이템을 선택할 때 창 폭이 줄어드는 문제를 수정했습니다.",
-        notes: [
-          "Inventory 아이템 선택 시 창 크기 자동 맞춤을 실행하지 않도록 수정했습니다.",
-          "Inventory 탭 변경과 착용/해제를 반복해도 창 폭이 고정됩니다.",
-          "다른 앱 창의 기존 콘텐츠 맞춤 동작은 유지했습니다."
-        ]
-      },
-      zh: {
-        summary: "修复背包中选择物品时窗口宽度变小的问题。",
-        notes: [
-          "选择背包物品时不再触发自动窗口缩放。",
-          "切换背包标签和装备物品时窗口宽度保持固定。",
-          "其他应用窗口保留原有的内容适配行为。"
-        ]
-      }
-    }
-  }
-];
-
-const messages = {
-  en: {
-    brand: "OS Hero",
-    "nav.install": "Install",
-    "nav.contact": "Contact",
-    "nav.language": "Language",
-    "home.eyebrow": "Pixel companion for your desktop",
-    "home.title": "OS Hero",
-    "home.lead": "Adventure with a small companion that lives in your macOS menu bar. OS Hero reacts to your CPU activity and stays ready while you work.",
-    "home.downloadMac": "Download for macOS",
-    "home.latestVersion": "Latest version: {version}.",
-    "home.archive": "View version archive",
-    "home.menuEyebrow": "Tray menu guide",
-    "home.menuTitle": "Everything starts from the OS Hero icon",
-    "home.menuLead": "OS Hero stays out of the way until you open the menu bar icon. These are the main places you will use after installing the app.",
-    "install.title": "Install",
-    "install.description": "Download the latest OS Hero release or browse previous versions. The latest buttons always point to the newest published build.",
-    "install.version": "Version",
-    "install.date": "Updated",
-    "install.summary": "Patch summary",
-    "install.download": "Download",
-    "install.mac": "macOS",
-    "install.previous": "Previous",
-    "install.next": "Next",
-    "detail.back": "Back to install",
-    "detail.title": "Version {version}",
-    "detail.updated": "Updated {date}",
-    "detail.downloads": "Downloads",
-    "detail.notes": "Patch notes",
-    "contact.title": "Contact",
-    "contact.description": "The same developer and copyright information shown inside the OS Hero app.",
-    "contact.developer": "Developer",
-    "contact.contact": "Contact",
-    "contact.copyright": "Copyright",
-    "notFound.title": "Page not found",
-    "notFound.action": "Go home"
-  },
-  ko: {
-    brand: "OS 히어로",
-    "nav.install": "설치",
-    "nav.contact": "문의",
-    "nav.language": "언어",
-    "home.eyebrow": "데스크톱을 위한 픽셀 동반자",
-    "home.title": "OS 히어로",
-    "home.lead": "Mac에서 나와 함께 모험할 작은 동반자를 만나보세요. OS Hero는 macOS 메뉴 막대에 머물며 CPU 상태에 맞춰 움직입니다.",
-    "home.downloadMac": "macOS용 다운로드",
-    "home.latestVersion": "최신 버전: {version}.",
-    "home.archive": "버전 아카이브 보기",
-    "home.menuEyebrow": "트레이 메뉴 안내",
-    "home.menuTitle": "모든 기능은 OS Hero 아이콘에서 시작됩니다",
-    "home.menuLead": "OS Hero는 macOS 메뉴 막대에 조용히 머물다가, 아이콘을 클릭했을 때 필요한 화면을 열어 줍니다. 설치 후 가장 자주 쓰게 될 메뉴는 아래와 같습니다.",
-    "install.title": "설치",
-    "install.description": "최신 OS Hero 릴리스를 받거나 이전 버전을 확인하세요. 최신 다운로드 버튼은 항상 가장 최근 배포 파일을 가리킵니다.",
-    "install.version": "버전",
-    "install.date": "업데이트 일시",
-    "install.summary": "패치노트 요약",
-    "install.download": "다운로드",
-    "install.mac": "macOS",
-    "install.previous": "이전",
-    "install.next": "다음",
-    "detail.back": "설치로 돌아가기",
-    "detail.title": "버전 {version}",
-    "detail.updated": "{date} 업데이트",
-    "detail.downloads": "다운로드",
-    "detail.notes": "패치 내용",
-    "contact.title": "문의",
-    "contact.description": "OS Hero 앱 정보에 표시되는 개발자 및 저작권 정보입니다.",
-    "contact.developer": "개발자",
-    "contact.contact": "이메일",
-    "contact.copyright": "저작권",
-    "notFound.title": "페이지를 찾을 수 없습니다",
-    "notFound.action": "홈으로 이동"
-  },
-  zh: {
-    brand: "OS 英雄",
-    "nav.install": "安装",
-    "nav.contact": "联系",
-    "nav.language": "语言",
-    "home.eyebrow": "桌面上的像素伙伴",
-    "home.title": "OS 英雄",
-    "home.lead": "让一位小小的像素伙伴陪你在 Mac 上一起冒险。OS Hero 常驻 macOS 菜单栏，并会随着 CPU 状态改变动作节奏。",
-    "home.downloadMac": "下载 macOS 版",
-    "home.latestVersion": "最新版本：{version}。",
-    "home.archive": "查看版本归档",
-    "home.menuEyebrow": "托盘菜单指南",
-    "home.menuTitle": "所有功能都从 OS Hero 图标开始",
-    "home.menuLead": "OS Hero 会安静地停留在 macOS 菜单栏中。点击图标后，你可以从这些菜单进入主要功能。",
-    "install.title": "安装",
-    "install.description": "下载最新 OS Hero 版本，或浏览历史版本。最新下载按钮会始终指向当前发布的最新版。",
-    "install.version": "版本",
-    "install.date": "更新时间",
-    "install.summary": "更新摘要",
-    "install.download": "下载",
-    "install.mac": "macOS",
-    "install.previous": "上一页",
-    "install.next": "下一页",
-    "detail.back": "返回安装页",
-    "detail.title": "版本 {version}",
-    "detail.updated": "更新时间 {date}",
-    "detail.downloads": "下载",
-    "detail.notes": "更新内容",
-    "contact.title": "联系",
-    "contact.description": "与 OS Hero 应用信息中显示的开发者和版权信息一致。",
-    "contact.developer": "开发者",
-    "contact.contact": "邮箱",
-    "contact.copyright": "版权",
-    "notFound.title": "页面未找到",
-    "notFound.action": "返回首页"
-  }
-};
-
-const menuGuides = {
-  en: [
-    {
-      name: "Hero",
-      body: "Open the character editor. Change gender, eye type, and body color, then save to update the menu bar or tray icon."
-    },
-    {
-      name: "Inventory",
-      body: "Dress the hero with one head item, one outfit, and one tool. Selecting an item previews it before you equip it."
-    },
-    {
-      name: "Quests",
-      body: "Assign missions to your hero. Use adventure logs for notes, bookmark records for web links, and reminders for OS notifications."
-    },
-    {
-      name: "Settings",
-      body: "Control launch at login, check for new versions, and review app version, developer, contact, and copyright details."
-    },
-    {
-      name: "Language",
-      body: "Switch the entire app between English, Korean, and Simplified Chinese. The selected language is saved locally."
-    },
-    {
-      name: "About / Quit",
-      body: "Open the app information window or fully quit OS Hero. Quitting removes the menu bar or tray icon."
-    }
-  ],
-  ko: [
-    {
-      name: "히어로",
-      body: "캐릭터 편집 화면을 엽니다. 성별, 눈 타입, 바디 색상을 바꾸고 저장하면 메뉴 막대 또는 트레이 아이콘에 바로 반영됩니다."
-    },
-    {
-      name: "인벤토리",
-      body: "머리, 의류, 도구 아이템을 각각 하나씩 착용합니다. 아이템을 선택하면 저장 전 우측 미리보기에서 먼저 확인할 수 있습니다."
-    },
-    {
-      name: "퀘스트",
-      body: "히어로에게 임무를 부여합니다. 모험 일지는 메모, 북마크 기록은 웹 링크, 리마인더는 OS 알림으로 사용할 수 있습니다."
-    },
-    {
-      name: "환경설정",
-      body: "로그인 시 자동 실행을 켜고 끄거나, 새 버전을 확인하고, 앱 버전과 개발자 정보를 확인합니다."
-    },
-    {
-      name: "Language",
-      body: "앱 전체 언어를 영어, 한국어, 중국어 간체 중 하나로 바꿉니다. 선택한 언어는 로컬에 저장됩니다."
-    },
-    {
-      name: "앱 정보 / 종료",
-      body: "앱 정보 창을 열거나 OS Hero를 완전히 종료합니다. 종료하면 메뉴 막대 또는 트레이 아이콘도 사라집니다."
-    }
-  ],
-  zh: [
-    {
-      name: "英雄",
-      body: "打开角色编辑器。修改性别、眼睛类型和身体颜色，保存后会更新菜单栏或托盘图标。"
-    },
-    {
-      name: "背包",
-      body: "为英雄装备一个头部物品、一套服装和一个工具。选择物品后，可先在预览中确认效果。"
-    },
-    {
-      name: "任务",
-      body: "给英雄分配任务。冒险日志用于记录笔记，书签记录用于保存网页链接，提醒用于发送系统通知。"
-    },
-    {
-      name: "设置",
-      body: "开关登录时启动，检查新版本，并查看应用版本、开发者、联系方式和版权信息。"
-    },
-    {
-      name: "Language",
-      body: "在英语、韩语和简体中文之间切换整个应用语言。选择结果会保存在本地。"
-    },
-    {
-      name: "关于 / 退出",
-      body: "打开应用信息窗口，或完全退出 OS Hero。退出后菜单栏或托盘图标也会移除。"
-    }
-  ]
-};
-
-const developerNames = {
-  en: "Chungbok Lee",
-  ko: "이충복",
-  zh: "李忠馥"
-};
-
-let language = getInitialLanguage();
+let releases = [];
+let registryStatus = "loading";
 let page = 1;
-
-function getInitialLanguage() {
-  const saved = window.localStorage.getItem("osHeroLanguage");
-  if (saved && messages[saved]) {
-    return saved;
-  }
-
-  const languages = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language];
-  for (const candidate of languages) {
-    const normalized = normalizeLanguage(candidate);
-    if (normalized) {
-      return normalized;
-    }
-  }
-
-  return "en";
-}
+let language = getInitialLanguage();
 
 function normalizeLanguage(value) {
   const lower = String(value || "").toLowerCase();
-  if (lower.startsWith("ko")) {
-    return "ko";
-  }
-  if (lower.startsWith("zh-cn") || lower.startsWith("zh-hans") || lower === "zh" || lower.startsWith("zh-sg")) {
-    return "zh";
-  }
-  if (lower.startsWith("en")) {
-    return "en";
-  }
+  if (lower.startsWith("ko")) return "ko";
+  if (lower.startsWith("zh")) return "zh";
+  if (lower.startsWith("en")) return "en";
   return null;
 }
-
+function getInitialLanguage() {
+  try {
+    const saved = window.localStorage.getItem("osHeroLanguage");
+    if (Object.hasOwn(messages, saved)) return saved;
+  } catch { /* Privacy modes may disable local storage. */ }
+  for (const candidate of navigator.languages || [navigator.language]) {
+    const locale = normalizeLanguage(candidate);
+    if (locale) return locale;
+  }
+  return "en";
+}
 function t(key, replacements = {}) {
-  let text = (messages[language] && messages[language][key]) || messages.en[key] || key;
-  for (const [name, value] of Object.entries(replacements)) {
-    text = text.replace(`{${name}}`, value);
-  }
-  return text;
+  let value = messages[language][key] || messages.en[key] || key;
+  for (const [name, replacement] of Object.entries(replacements)) value = value.replace(`{${name}}`, replacement);
+  return value;
 }
-
-function getReleaseCopy(release) {
-  return release.copy[language] || release.copy.en;
+function escapeHtml(value) {
+  return String(value).replace(/[&<>"']/g, char => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[char]));
 }
-
-function getMenuGuideItems() {
-  return menuGuides[language] || menuGuides.en;
+function getReleaseCopy(release) { return release.copy[language] || release.copy.en; }
+function validDownload(file) {
+  return typeof file === "string" && (/^OS[ -]Hero-\d+\.\d+\.\d+-arm64\.dmg$/.test(file) ||
+    /^https:\/\/github\.com\/os-hero\/os-hero\/releases\/download\/v\d+\.\d+\.\d+\/OS-Hero-\d+\.\d+\.\d+-arm64\.dmg$/.test(file));
 }
-
-function developerName() {
-  return developerNames[language] || developerNames.en;
+function validRegistry(records) {
+  return Array.isArray(records) && records.length > 0 && new Set(records.map(r => r?.version)).size === records.length && records.every(record =>
+    /^\d+\.\d+\.\d+$/.test(record?.version) && Number.isFinite(Date.parse(record.releasedAt)) && validDownload(record.downloads?.mac) &&
+    ["ko", "en", "zh"].every(locale => typeof record.copy?.[locale]?.summary === "string" &&
+      Array.isArray(record.copy[locale].notes) && record.copy[locale].notes.every(note => typeof note === "string")));
 }
-
-function detectPlatform() {
-  const platform = `${navigator.userAgentData && navigator.userAgentData.platform ? navigator.userAgentData.platform : ""} ${navigator.platform || ""} ${navigator.userAgent || ""}`.toLowerCase();
-  if (platform.includes("mac")) {
-    return "mac";
-  }
-  return null;
+function compareVersions(a, b) {
+  const aa = a.version.split(".").map(Number), bb = b.version.split(".").map(Number);
+  for (let i = 0; i < 3; i++) if (aa[i] !== bb[i]) return bb[i] - aa[i];
+  return 0;
 }
-
-function fileUrl(fileName) {
-  if (fileName.startsWith("https://github.com/os-hero/os-hero/releases/download/")) return fileName;
-  return `${DOWNLOAD_BASE}${encodeURIComponent(fileName).replace(/%2F/g, "/")}`;
-}
-
-function routePath(path) {
-  if (!path || path === "/") {
-    return "/";
-  }
-
-  return path.startsWith("/") ? path : `/${path}`;
-}
-
+function fileUrl(file) { return file.startsWith(DOWNLOAD_PREFIX) ? file : `/updates/${encodeURIComponent(file)}`; }
 function formatDate(value) {
   return new Intl.DateTimeFormat(language === "ko" ? "ko-KR" : language === "zh" ? "zh-CN" : "en-US", {
-    year: "numeric",
-    month: "short",
-    day: "2-digit",
-    hour: "2-digit",
-    minute: "2-digit"
+    year: "numeric", month: "short", day: "numeric", timeZone: "Asia/Seoul"
   }).format(new Date(value));
 }
-
-function renderLayout(content) {
+function icon(name, extra = "") { return `<img class="icon ${extra}" src="/assets/icons/${name}.svg" width="22" height="22" alt="">`; }
+function downloadButton(release, className = "button") {
+  return `<a class="${className}" href="${release ? fileUrl(release.downloads.mac) : LATEST_RELEASE_URL}" ${release ? "download" : ""}>${icon("download")}${t(release ? "download" : "download.latest")}</a>`;
+}
+function latestNotesUrl() { return releases[0] ? `/versions/${releases[0].version}` : LATEST_RELEASE_URL; }
+function requirements(release) { return `${release ? `v${release.version} · ` : ""}${t("download.requirements")}`; }
+function registryMessage() {
+  return `<div class="registry-notice" role="status"><p>${t(registryStatus === "error" ? "error.registry" : "error.loading")}</p>${registryStatus === "error" ? `<button class="text-link" data-retry>${t("error.retry")}</button>` : ""}</div>`;
+}
+function renderLayout(content, title) {
   document.documentElement.lang = language === "zh" ? "zh-CN" : language;
-  document.title = language === "en" ? "OS Hero" : t("brand");
-  document.querySelectorAll("[data-i18n]").forEach((node) => {
-    node.textContent = t(node.dataset.i18n);
-  });
+  document.title = title ? `${title} | OS Hero` : t("meta.title");
+  document.querySelector('meta[name="description"]').content = t("meta.description");
+  document.querySelector('meta[property="og:title"]').content = document.title;
+  document.querySelector('meta[property="og:description"]').content = t("meta.description");
+  document.querySelectorAll("[data-i18n]").forEach(node => { node.textContent = t(node.dataset.i18n); });
   document.getElementById("languageSelect").value = language;
+  document.getElementById("languageSelect").setAttribute("aria-label", t("nav.language"));
+  document.querySelector(".menu-toggle").setAttribute("aria-label", t("nav.menu"));
+  document.querySelector(".dialog-close").setAttribute("aria-label", t("close"));
   document.getElementById("app").innerHTML = content;
-  document.getElementById("app").focus({ preventScroll: true });
+  document.getElementById("footer").innerHTML = `<div class="inner footer-inner"><a class="brand" href="/"><img class="pixel" src="/assets/product/hero.png" width="32" height="32" alt=""><span class="brand-text">OS Hero</span></a><nav aria-label="Footer"><a href="${latestNotesUrl()}">${t("footer.notes")}${releases[0] ? ` (v${releases[0].version})` : ""}</a><a href="/install">${t("footer.archive")}</a><a href="/contact">${t("footer.contact")}</a></nav><small>© ${new Date().getFullYear()} ${t("footer.copyright")}</small></div>`;
+  document.querySelectorAll("[data-retry]").forEach(button => button.addEventListener("click", loadReleases));
 }
-
-function downloadButton(release, platform, className = "button") {
-  const label = t("home.downloadMac");
-  return `<a class="${className}" href="${fileUrl(release.downloads[platform])}" download>${label}</a>`;
-}
-
 function renderHome() {
   const latest = releases[0];
-  const platform = detectPlatform() || "mac";
-  const primaryActions = downloadButton(latest, platform);
-  const menuGuideItems = getMenuGuideItems();
-
   renderLayout(`
-    <section class="section">
-      <div class="inner hero">
-        <div>
-          <p class="eyebrow">${t("home.eyebrow")}</p>
-          <h1>${t("home.title")}</h1>
-          <p class="lead">${t("home.lead")}</p>
-          <div class="actions">
-            ${primaryActions}
-            <a class="button secondary" href="/install">${t("home.archive")}</a>
-          </div>
-          <p class="download-context">${t("home.latestVersion", { version: latest.version })}</p>
-        </div>
-        <div class="hero-art" aria-hidden="true">
-          <img class="hero-icon" src="/assets/app-icon.png" alt="">
-        </div>
-      </div>
+    <section class="hero" aria-labelledby="hero-title">
+      <img class="hero-background" src="/assets/guild-forest.webp" width="1536" height="1024" fetchpriority="high" alt="">
+      <div class="inner hero-inner"><div class="hero-copy">
+        <h1 id="hero-title">OS Hero</h1><p class="hero-headline">${t("hero.headline")}</p><p class="hero-lead">${t("hero.lead")}</p>
+        ${downloadButton(latest)}<p class="download-context">${requirements(latest)}</p>
+      </div><img class="hero-character pixel" src="/assets/product/hero.png" width="240" height="240" alt="${t("hero.image")}">
+      <div class="menu-demo"><img class="pixel" src="/assets/product/menu-hero.png" width="39" height="26" alt=""><span>OS Hero</span>${icon("wifi")}${icon("battery")}<span class="sr-only">${t("hero.menubar")}</span></div></div>
     </section>
-    <section class="section soft-band">
-      <div class="inner menu-guide">
-        <p class="eyebrow">${t("home.menuEyebrow")}</p>
-        <h2>${t("home.menuTitle")}</h2>
-        <p class="section-copy">${t("home.menuLead")}</p>
-        <div class="menu-guide-list">
-          ${menuGuideItems
-            .map(
-              (item) => `
-                <article class="menu-guide-item">
-                  <h3>${item.name}</h3>
-                  <p>${item.body}</p>
-                </article>
-              `
-            )
-            .join("")}
-        </div>
-      </div>
-    </section>
+    <a class="release-band" href="${latestNotesUrl()}"><div class="inner"><strong>${latest ? t("release.label", { version: latest.version }) : t("nav.updates")}</strong><span>${latest?.version === "1.8.0" || !latest ? t("release.features") : escapeHtml(getReleaseCopy(latest).summary)}</span>${icon("arrow-right")}</div></a>
+    <section class="section game-section" id="game"><div class="inner">
+      <h2>${t("game.title")}</h2><div class="game-layout"><figure class="game-figure"><img class="app-capture" src="/assets/product/exploration.png" width="760" height="600" loading="lazy" alt="${t("game.screenshot")}"></figure>
+      <div class="game-features">${[["register", "hero.png"], ["wardrobe", "moon_coat.png"], ["adventure", "slime.png"]].map(([key, image]) => `<article class="game-feature"><img class="pixel" src="/assets/product/${image}" width="54" height="54" loading="lazy" alt=""><div><h3>${t(`game.${key}.title`)}</h3><p>${t(`game.${key}.body`)}</p></div></article>`).join("")}
+      <p class="play-policy">${t("game.policy")}</p></div></div>
+    </div></section>
+    <section class="section wardrobe-section" id="wardrobe"><div class="inner">
+      <h2>${t("wardrobe.title")}</h2>
+      <div class="wardrobe-line"><div class="gear-line">${["meadow_crown", "moon_coat", "leaf_cape", "firefly_lantern"].map(id => `<img class="pixel" src="/assets/product/${id}.png" width="64" height="64" loading="lazy" alt="${t(`item.${id}`)}" title="${t(`item.${id}`)}">`).join("")}</div>
+      <div class="outfit-pair"><img class="pixel" src="/assets/product/hero.png" width="104" height="104" loading="lazy" alt="${t("hero.image")}"><img class="pixel" src="/assets/product/hero-equipped.png" width="104" height="104" loading="lazy" alt="${t("wardrobe.image")}"></div>
+      <button class="text-link wardrobe-open" type="button">${t("wardrobe.preview")}${icon("arrow-right")}</button></div>
+    </div></section>
+    <section class="section faq-section"><div class="inner faq-layout"><h2>${t("faq.title")}</h2><div>${["install", "identity", "progress", "update"].map(key => `<details><summary>${t(`faq.${key}.q`)}</summary><p>${t(`faq.${key}.a`)}</p></details>`).join("")}</div></div></section>
   `);
+  document.querySelector(".wardrobe-open").addEventListener("click", () => document.getElementById("inventory-dialog").showModal());
 }
-
 function renderInstall() {
-  const pageCount = Math.max(1, Math.ceil(releases.length / PAGE_SIZE));
-  page = Math.min(Math.max(1, page), pageCount);
-  const start = (page - 1) * PAGE_SIZE;
-  const rows = releases.slice(start, start + PAGE_SIZE).map((release) => {
-    const copy = getReleaseCopy(release);
-    return `
-      <tr data-version="${release.version}" tabindex="0">
-        <td class="version-cell">${release.version}</td>
-        <td>${formatDate(release.releasedAt)}</td>
-        <td class="summary-cell"><span class="truncate">${copy.summary}</span></td>
-        <td>
-          <div class="table-actions">
-            <a class="small-link" href="${fileUrl(release.downloads.mac)}" download data-download>${t("install.mac")}</a>
-          </div>
-        </td>
-      </tr>
-    `;
-  }).join("");
-
-  renderLayout(`
-    <section class="section soft-band">
-      <div class="inner">
-        <div class="page-head">
-          <div>
-            <h2>${t("install.title")}</h2>
-            <p>${t("install.description")}</p>
-          </div>
-          <div class="actions">
-            ${downloadButton(releases[0], "mac")}
-          </div>
-        </div>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>${t("install.version")}</th>
-                <th>${t("install.date")}</th>
-                <th>${t("install.summary")}</th>
-                <th>${t("install.download")}</th>
-              </tr>
-            </thead>
-            <tbody>${rows}</tbody>
-          </table>
-        </div>
-        <div class="pagination">
-          <button id="prevPage" ${page === 1 ? "disabled" : ""}>${t("install.previous")}</button>
-          <button id="nextPage" ${page === pageCount ? "disabled" : ""}>${t("install.next")}</button>
-        </div>
-      </div>
-    </section>
-  `);
-
-  document.querySelectorAll("tbody tr").forEach((row) => {
-    row.addEventListener("click", (event) => {
-      if (event.target.closest("[data-download]")) {
-        return;
-      }
-      navigate(`/versions/${row.dataset.version}`);
-    });
-    row.addEventListener("keydown", (event) => {
-      if (event.key === "Enter") {
-        navigate(`/versions/${row.dataset.version}`);
-      }
-    });
-  });
-  document.getElementById("prevPage").addEventListener("click", () => {
-    page -= 1;
-    renderInstall();
-  });
-  document.getElementById("nextPage").addEventListener("click", () => {
-    page += 1;
-    renderInstall();
-  });
+  const count = Math.max(1, Math.ceil(releases.length / PAGE_SIZE));
+  page = Math.max(1, Math.min(page, count));
+  renderLayout(`<section class="section document-section"><div class="inner"><div class="page-head"><div><p class="eyebrow">OS Hero</p><h1>${t("install.title")}</h1><p class="lead">${t("install.description")}</p></div><div>${downloadButton(releases[0])}<p class="requirements">${requirements(releases[0])}</p></div></div>
+    ${!releases.length ? registryMessage() : `<div class="release-list">${releases.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE).map(release => `<article class="release-row"><div class="release-version"><a href="/versions/${release.version}"><h2>v${release.version}</h2></a><time datetime="${escapeHtml(release.releasedAt)}">${formatDate(release.releasedAt)}</time></div><p>${escapeHtml(getReleaseCopy(release).summary)}</p><div class="release-actions"><a class="text-link" href="/versions/${release.version}">${t("install.notes")}${icon("arrow-right")}</a><a class="small-link" href="${fileUrl(release.downloads.mac)}" download>${icon("download")}macOS</a></div></article>`).join("")}</div><nav class="pagination" aria-label="${t("nav.updates")}"><button id="prevPage" ${page === 1 ? "disabled" : ""}>${t("install.previous")}</button><span>${t("install.page", { page, total: count })}</span><button id="nextPage" ${page === count ? "disabled" : ""}>${t("install.next")}</button></nav>`}
+    </div></section>`, t("install.title"));
+  document.getElementById("prevPage")?.addEventListener("click", () => { page--; renderInstall(); document.getElementById("app").focus({ preventScroll: true }); });
+  document.getElementById("nextPage")?.addEventListener("click", () => { page++; renderInstall(); document.getElementById("app").focus({ preventScroll: true }); });
 }
-
 function renderVersion(version) {
-  const release = releases.find((candidate) => candidate.version === version);
-  if (!release) {
-    renderNotFound();
-    return;
-  }
-
+  if (!releases.length) { renderLayout(`<section class="section"><div class="inner">${registryMessage()}${downloadButton()}</div></section>`); return; }
+  const release = releases.find(item => item.version === version);
+  if (!release) { renderNotFound(); return; }
   const copy = getReleaseCopy(release);
-  renderLayout(`
-    <section class="section">
-      <div class="inner detail-layout">
-        <article>
-          <a class="small-link" href="/install">${t("detail.back")}</a>
-          <h2>${t("detail.title", { version: release.version })}</h2>
-          <p class="lead">${t("detail.updated", { date: formatDate(release.releasedAt) })}</p>
-          <h3>${t("detail.notes")}</h3>
-          <ul class="release-notes">
-            ${copy.notes.map((note) => `<li>${note}</li>`).join("")}
-          </ul>
-        </article>
-        <aside class="side-panel">
-          <h3>${t("detail.downloads")}</h3>
-          ${downloadButton(release, "mac")}
-        </aside>
-      </div>
-    </section>
-  `);
+  renderLayout(`<section class="section document-section"><div class="inner"><a class="text-link back-link" href="/install">${t("detail.back")}</a><div class="detail-layout"><article><h1>${t("detail.title", { version })}</h1><p class="release-date">${t("detail.updated", { date: formatDate(release.releasedAt) })}</p><p class="lead">${escapeHtml(copy.summary)}</p><h2 class="notes-heading">${t("detail.notes")}</h2><ul class="release-notes">${copy.notes.map(note => `<li>${escapeHtml(note)}</li>`).join("")}</ul></article><aside class="download-panel"><h2>${t("detail.downloads")}</h2>${downloadButton(release)}<p class="requirements">${requirements(release)}</p></aside></div></div></section>`, t("detail.title", { version }));
 }
-
 function renderContact() {
-  const year = new Date().getFullYear();
-  renderLayout(`
-    <section class="section">
-      <div class="inner">
-        <h2>${t("contact.title")}</h2>
-        <p class="lead">${t("contact.description")}</p>
-        <dl class="contact-list">
-          <div class="contact-row">
-            <dt>${t("contact.developer")}</dt>
-            <dd>${developerName()}</dd>
-          </div>
-          <div class="contact-row">
-            <dt>${t("contact.contact")}</dt>
-            <dd><a href="mailto:themercenary@duck.com">themercenary@duck.com</a></dd>
-          </div>
-          <div class="contact-row">
-            <dt>${t("contact.copyright")}</dt>
-            <dd>Copyright © ${year} The Mercenary. All Rights Reserved.</dd>
-          </div>
-        </dl>
-      </div>
-    </section>
-  `);
+  renderLayout(`<section class="section document-section"><div class="inner"><p class="eyebrow">OS Hero</p><h1>${t("contact.title")}</h1><p class="lead">${t("contact.description")}</p><dl class="contact-list"><div><dt>${t("contact.developer")}</dt><dd>${t("developer")}</dd></div><div><dt>${t("contact.email")}</dt><dd><a href="mailto:themercenary@duck.com">themercenary@duck.com</a></dd></div><div><dt>${t("contact.copyright")}</dt><dd>© ${new Date().getFullYear()} The Mercenary. All rights reserved.</dd></div></dl></div></section>`, t("contact.title"));
 }
-
-function renderNotFound() {
-  renderLayout(`
-    <section class="section">
-      <div class="inner">
-        <h2>${t("notFound.title")}</h2>
-        <a class="button" href="/">${t("notFound.action")}</a>
-      </div>
-    </section>
-  `);
-}
-
+function renderNotFound() { renderLayout(`<section class="section document-section"><div class="inner"><h1>${t("notFound.title")}</h1><a class="button" href="/">${t("notFound.home")}</a></div></section>`, t("notFound.title")); }
 function renderRoute() {
-  const parts = window.location.pathname.split("/").filter(Boolean);
-
-  if (parts.length === 0) {
-    renderHome();
-    return;
-  }
-  if (parts[0] === "install") {
-    renderInstall();
-    return;
-  }
-  if (parts[0] === "contact") {
-    renderContact();
-    return;
-  }
-  if (parts[0] === "versions") {
-    renderVersion(parts[1]);
-    return;
-  }
-  renderNotFound();
+  const parts = window.location.pathname.replace(/\/index\.html$/, "/").split("/").filter(Boolean);
+  if (!parts.length) renderHome();
+  else if (parts.length === 1 && parts[0] === "install") renderInstall();
+  else if (parts.length === 1 && parts[0] === "contact") renderContact();
+  else if (parts.length === 2 && parts[0] === "versions") renderVersion(parts[1]);
+  else renderNotFound();
 }
-
-document.getElementById("languageSelect").addEventListener("change", (event) => {
+function closeMenu() {
+  document.querySelector(".site-header").classList.remove("menu-open");
+  document.querySelector(".menu-toggle").setAttribute("aria-expanded", "false");
+}
+function scrollToRoute() {
+  const id = window.location.hash.slice(1);
+  const target = id && document.getElementById(id);
+  if (target) target.scrollIntoView({ block: "start" });
+  else window.scrollTo({ top: 0 });
+}
+function navigate(url) {
+  const samePage = window.location.pathname === url.pathname;
+  window.history.pushState({}, "", `${url.pathname}${url.hash}`);
+  if (!samePage) renderRoute();
+  closeMenu();
+  scrollToRoute();
+  if (!url.hash) document.getElementById("app").focus({ preventScroll: true });
+}
+document.getElementById("languageSelect").addEventListener("change", event => {
   language = event.target.value;
-  window.localStorage.setItem("osHeroLanguage", language);
+  try { window.localStorage.setItem("osHeroLanguage", language); } catch { /* Keep language for this page session. */ }
   renderRoute();
 });
-
-function navigate(path) {
-  const nextPath = routePath(path);
-  if (window.location.pathname !== nextPath) {
-    window.history.pushState({}, "", nextPath);
-  }
-  renderRoute();
-}
-
-document.addEventListener("click", (event) => {
+document.querySelector(".menu-toggle").addEventListener("click", () => {
+  const open = document.querySelector(".site-header").classList.toggle("menu-open");
+  document.querySelector(".menu-toggle").setAttribute("aria-expanded", String(open));
+});
+document.addEventListener("keydown", event => { if (event.key === "Escape") closeMenu(); });
+document.querySelector(".dialog-close").addEventListener("click", () => document.getElementById("inventory-dialog").close());
+document.getElementById("inventory-dialog").addEventListener("click", event => { if (event.target === event.currentTarget) event.currentTarget.close(); });
+document.addEventListener("click", event => {
   const link = event.target.closest("a[href]");
-  if (!link) {
-    return;
-  }
-
-  const href = link.getAttribute("href");
-  if (!href || href.startsWith("http") || href.startsWith("mailto:") || href.startsWith("/updates/") || link.hasAttribute("download")) {
-    return;
-  }
-
+  if (!link || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || link.hasAttribute("download") || link.target === "_blank") return;
+  const url = new URL(link.href, window.location.href);
+  if (url.origin !== window.location.origin || !/^https?:$/.test(url.protocol) || url.pathname.startsWith("/updates/")) return;
+  if (link.classList.contains("skip-link")) return;
   event.preventDefault();
-  navigate(href);
+  navigate(url);
 });
-
-window.addEventListener("popstate", renderRoute);
+window.addEventListener("popstate", () => { renderRoute(); closeMenu(); scrollToRoute(); });
 async function loadReleases() {
+  if (registryStatus === "fetching") return;
+  registryStatus = "fetching";
   const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 5000);
+  const timer = setTimeout(() => controller.abort(), 5000);
   try {
     const response = await fetch("/releases.json", { cache: "no-cache", signal: controller.signal });
     if (!response.ok) throw new Error("Release registry unavailable");
     const records = await response.json();
-    const valid = Array.isArray(records) && records.length && records.every(record =>
-      /^\d+\.\d+\.\d+$/.test(record.version) && typeof record.downloads?.mac === "string" &&
-      ["en", "ko", "zh"].every(language => typeof record.copy?.[language]?.summary === "string" &&
-        Array.isArray(record.copy[language].notes) && record.copy[language].notes.every(note => typeof note === "string")));
-    if (!valid) throw new Error("Invalid release registry");
-    releases.splice(0, releases.length, ...records);
+    if (!validRegistry(records)) throw new Error("Invalid release registry");
+    releases = records.slice().sort(compareVersions);
+    registryStatus = "ready";
   } catch (error) {
-    console.warn("Using bundled release information:", error.message);
-  } finally {
-    clearTimeout(timeout);
-  }
+    registryStatus = "error";
+    console.warn("Release registry:", error.message);
+  } finally { clearTimeout(timer); }
   renderRoute();
+  if (window.location.hash) scrollToRoute();
 }
+renderRoute();
 loadReleases();

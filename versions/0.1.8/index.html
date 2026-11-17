@@ -1,37 +1,32 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#2d6f90">
-    <title>OS Hero</title>
-    <meta
-      name="description"
-      content="OS Hero is a macOS menu bar pixel companion."
-    >
-    <link rel="icon" type="image/png" href="/favicon.png">
-    <link rel="stylesheet" href="/styles.css?v=0.1.19">
-  </head>
-  <body>
-    <header class="site-header">
-      <a class="brand" href="/" aria-label="OS Hero home">
-        <img class="brand-mark" src="/assets/app-icon.png" alt="">
-        <span class="brand-text" data-i18n="brand">OS Hero</span>
-      </a>
-      <nav class="site-nav" aria-label="Primary">
-        <a href="/install" data-i18n="nav.install">Install</a>
-        <a href="/contact" data-i18n="nav.contact">Contact</a>
-        <label class="language-control">
-          <span class="sr-only" data-i18n="nav.language">Language</span>
-          <select id="languageSelect" aria-label="Language">
-            <option value="en" aria-label="English">🇺🇸</option>
-            <option value="ko" aria-label="한국어">🇰🇷</option>
-            <option value="zh" aria-label="简体中文">🇨🇳</option>
-          </select>
-        </label>
-      </nav>
-    </header>
-    <main id="app" class="site-main" tabindex="-1"></main>
-    <script src="/app.js?v=0.1.26-macos"></script>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#153f35">
+  <title>OS Hero | Your menu bar adventure</title>
+  <meta name="description" content="Your own pixel Hero in the Mac menu bar. Customize seven equipment slots, explore, collect loot and level up. Apple Silicon, macOS 12 or later.">
+  <meta property="og:title" content="OS Hero | Your menu bar adventure">
+  <meta property="og:description" content="A little Hero. An everyday adventure. Customize, explore and grow together in your Mac menu bar.">
+  <meta property="og:image" content="https://os-hero.github.io/assets/social-preview.jpg">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="/assets/product/hero.png">
+  <link rel="preload" href="/assets/fonts/PressStart2P-Regular.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="/styles.css?v=guild-20261117">
+</head>
+<body>
+  <a class="skip-link" href="#app" data-i18n="skip">Skip to content</a>
+  <header class="site-header"><div class="header-inner">
+    <a class="brand" href="/" aria-label="OS Hero home"><img class="brand-mark pixel" src="/assets/product/hero.png" width="40" height="40" alt=""><span class="brand-text">OS Hero</span></a>
+    <nav class="site-nav" id="site-nav" aria-label="Primary"><a href="/#game" data-i18n="nav.game">The game</a><a href="/#wardrobe" data-i18n="nav.wardrobe">Wardrobe</a><a href="/install" data-i18n="nav.updates">Updates</a></nav>
+    <label class="language-control"><span class="sr-only" data-i18n="nav.language">Language</span><select id="languageSelect" aria-label="Language"><option value="en">English</option><option value="ko">한국어</option><option value="zh">简体中文</option></select></label>
+    <button class="menu-toggle icon-button" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><img src="/assets/icons/menu.svg" width="24" height="24" alt=""></button>
+  </div></header>
+  <main id="app" tabindex="-1"><section class="section"><div class="inner"><h1>OS Hero</h1><p>A small adventure in your Mac menu bar.</p><a class="button" href="https://github.com/os-hero/os-hero/releases/latest">View the latest release</a></div></section></main>
+  <footer class="site-footer" id="footer"></footer>
+  <dialog id="inventory-dialog" aria-labelledby="inventory-dialog-title"><div class="dialog-header"><h2 id="inventory-dialog-title" data-i18n="wardrobe.preview">Inventory</h2><button type="button" class="icon-button dialog-close" aria-label="Close"><img src="/assets/icons/x.svg" width="24" height="24" alt=""></button></div><img class="app-capture" src="/assets/product/inventory.png" width="760" height="600" alt="OS Hero inventory with seven equipment slots"></dialog>
+  <script src="/content.js?v=guild-20261117"></script>
+  <script src="/app.js?v=guild-20261117"></script>
+</body>
 </html>
