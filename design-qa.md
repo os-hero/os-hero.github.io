@@ -34,6 +34,7 @@ final result: passed
 - 36 route combinations: archive, 1.8.0 notes and contact x 3 languages x widths 320, 390, 768, 1440. All pass. `routes-results.json` records the result.
 - Mobile menu open/close and hash navigation, archive next/previous, release-detail navigation, inventory modal and Escape, FAQ expansion, language persistence tested in the actual browser.
 - Browser console checked: no errors/warnings on the normal paths.
+- Public deployment also verified: 15 served files matched local bytes; desktop/mobile homepage and release navigation passed at https://os-hero.github.io/. See `docs/DEPLOY_LOG.md`.
 
 ## Intentional differences and limits
 
