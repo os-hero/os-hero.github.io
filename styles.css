@@ -528,6 +528,69 @@ h3{
   font-size:11px;
   color:#bed1c5
 }
+.footer-link{
+  color:inherit;
+  font:inherit;
+  background:none;
+  border:0;
+  padding:0;
+  text-align:left
+}
+.footer-link:hover{
+  color:var(--gold)
+}
+.analytics-notice{
+  background:#edf4ec;
+  border-bottom:1px solid var(--line);
+  padding-block:16px
+}
+.analytics-notice-inner{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:12px 28px
+}
+.analytics-notice-inner>div:first-child{
+  flex:1 1 360px;
+  min-width:0
+}
+.analytics-notice strong{
+  font-size:14px
+}
+.analytics-notice p{
+  font-size:13px;
+  margin-top:4px
+}
+.analytics-actions{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:12px
+}
+.analytics-actions .small-link{
+  background:var(--paper);
+  color:var(--text);
+  border-color:#8aa394;
+  min-width:72px
+}
+.analytics-actions .small-link:hover{
+  background:#dcebdc
+}
+#analytics-dialog{
+  width:min(640px,calc(100% - 32px))
+}
+.analytics-description{
+  display:grid;
+  gap:16px;
+  margin-bottom:24px;
+  font-size:14px
+}
+.analytics-description .text-link{
+  justify-self:start
+}
+.analytics-status{
+  font-weight:700
+}
 .document-section h1{
   font-size:40px;
   margin-bottom:20px

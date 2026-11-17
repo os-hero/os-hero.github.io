@@ -8,7 +8,7 @@ const content = fs.readFileSync(path.join(__dirname, "../content.js"), "utf8");
 const legacy = JSON.parse(fs.readFileSync(path.join(__dirname, "../releases.json"), "utf8"));
 const latest = legacy[0];
 
-async function render(route, language, records) {
+async function render(route, language, records, views = []) {
   const elements = new Map();
   const element = id => {
     if (!elements.has(id)) elements.set(id, { innerHTML: "", value: "", addEventListener() {}, focus() {}, setAttribute() {}, classList: { remove() {} } });
@@ -16,7 +16,7 @@ async function render(route, language, records) {
   };
   const context = {
     document: { documentElement: {}, querySelectorAll: () => [], querySelector: element, getElementById: element, addEventListener() {} },
-    window: { location: { pathname: route, hash: "" }, localStorage: { getItem: () => language }, addEventListener() {} },
+    window: { location: { pathname: route, hash: "" }, localStorage: { getItem: () => language }, addEventListener() {}, osHeroAnalytics: { updatePage: view => views.push(view) } },
     navigator: { language, platform: "MacIntel" },
     fetch: async () => ({ ok: true, json: async () => records }),
     AbortController, setTimeout, clearTimeout, console: { warn() {} }
@@ -77,6 +77,16 @@ test("all translations provide the same keys", () => {
 test("unknown route does not silently become an existing page", async () => {
   const html = await render("/install/wrong", "en", legacy);
   assert.ok(html.includes("Page not found"));
+});
+test("direct version entry has a correct title even before registry fetch resolves", async () => {
+  const views = [];
+  await render(`/versions/${latest.version}`, "en", legacy, views);
+  assert.equal(views[0].title, `Version ${latest.version} | OS Hero`);
+});
+test("invalid version paths never become analytics page titles", async () => {
+  const views = [];
+  await render("/versions/private@example.com", "en", legacy, views);
+  assert.ok(views.every(view => view.title === "Page not found | OS Hero"));
 });
 test("every entry point uses current shared shell", () => {
   const root = path.join(__dirname, "..");

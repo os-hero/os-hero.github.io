@@ -55,8 +55,8 @@ function formatDate(value) {
   }).format(new Date(value));
 }
 function icon(name, extra = "") { return `<img class="icon ${extra}" src="/assets/icons/${name}.svg" width="22" height="22" alt="">`; }
-function downloadButton(release, className = "button") {
-  return `<a class="${className}" href="${release ? fileUrl(release.downloads.mac) : LATEST_RELEASE_URL}" ${release ? "download" : ""}>${icon("download")}${t(release ? "download" : "download.latest")}</a>`;
+function downloadButton(release, location = "version_detail") {
+  return `<a class="button" href="${release ? fileUrl(release.downloads.mac) : LATEST_RELEASE_URL}" ${release ? `download data-download-location="${location}"` : ""}>${icon("download")}${t(release ? "download" : "download.latest")}</a>`;
 }
 function latestNotesUrl() { return releases[0] ? `/versions/${releases[0].version}` : LATEST_RELEASE_URL; }
 function requirements(release) { return `${release ? `v${release.version} · ` : ""}${t("download.requirements")}`; }
@@ -74,9 +74,11 @@ function renderLayout(content, title) {
   document.getElementById("languageSelect").setAttribute("aria-label", t("nav.language"));
   document.querySelector(".menu-toggle").setAttribute("aria-label", t("nav.menu"));
   document.querySelector(".dialog-close").setAttribute("aria-label", t("close"));
+  document.querySelector("[data-analytics-close]")?.setAttribute("aria-label", t("close"));
   document.getElementById("app").innerHTML = content;
-  document.getElementById("footer").innerHTML = `<div class="inner footer-inner"><a class="brand" href="/"><img class="pixel" src="/assets/product/hero.png" width="32" height="32" alt=""><span class="brand-text">OS Hero</span></a><nav aria-label="Footer"><a href="${latestNotesUrl()}">${t("footer.notes")}${releases[0] ? ` (v${releases[0].version})` : ""}</a><a href="/install">${t("footer.archive")}</a><a href="/contact">${t("footer.contact")}</a></nav><small>© ${new Date().getFullYear()} ${t("footer.copyright")}</small></div>`;
+  document.getElementById("footer").innerHTML = `<div class="inner footer-inner"><a class="brand" href="/"><img class="pixel" src="/assets/product/hero.png" width="32" height="32" alt=""><span class="brand-text">OS Hero</span></a><nav aria-label="Footer"><a href="${latestNotesUrl()}">${t("footer.notes")}${releases[0] ? ` (v${releases[0].version})` : ""}</a><a href="/install">${t("footer.archive")}</a><a href="/contact">${t("footer.contact")}</a><button class="footer-link" type="button" data-analytics-settings hidden>${t("analytics.settings")}</button></nav><small>© ${new Date().getFullYear()} ${t("footer.copyright")}</small></div>`;
   document.querySelectorAll("[data-retry]").forEach(button => button.addEventListener("click", loadReleases));
+  window.osHeroAnalytics?.updatePage({ title: document.title, language });
 }
 function renderHome() {
   const latest = releases[0];
@@ -85,7 +87,7 @@ function renderHome() {
       <img class="hero-background" src="/assets/guild-forest.webp" width="1536" height="1024" fetchpriority="high" alt="">
       <div class="inner hero-inner"><div class="hero-copy">
         <h1 id="hero-title">OS Hero</h1><p class="hero-headline">${t("hero.headline")}</p><p class="hero-lead">${t("hero.lead")}</p>
-        ${downloadButton(latest)}<p class="download-context">${requirements(latest)}</p>
+        ${downloadButton(latest, "home_hero")}<p class="download-context">${requirements(latest)}</p>
       </div><img class="hero-character pixel" src="/assets/product/hero.png" width="240" height="240" alt="${t("hero.image")}">
       <div class="menu-demo"><img class="pixel" src="/assets/product/menu-hero.png" width="39" height="26" alt=""><span>OS Hero</span>${icon("wifi")}${icon("battery")}<span class="sr-only">${t("hero.menubar")}</span></div></div>
     </section>
@@ -108,14 +110,15 @@ function renderHome() {
 function renderInstall() {
   const count = Math.max(1, Math.ceil(releases.length / PAGE_SIZE));
   page = Math.max(1, Math.min(page, count));
-  renderLayout(`<section class="section document-section"><div class="inner"><div class="page-head"><div><p class="eyebrow">OS Hero</p><h1>${t("install.title")}</h1><p class="lead">${t("install.description")}</p></div><div>${downloadButton(releases[0])}<p class="requirements">${requirements(releases[0])}</p></div></div>
-    ${!releases.length ? registryMessage() : `<div class="release-list">${releases.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE).map(release => `<article class="release-row"><div class="release-version"><a href="/versions/${release.version}"><h2>v${release.version}</h2></a><time datetime="${escapeHtml(release.releasedAt)}">${formatDate(release.releasedAt)}</time></div><p>${escapeHtml(getReleaseCopy(release).summary)}</p><div class="release-actions"><a class="text-link" href="/versions/${release.version}">${t("install.notes")}${icon("arrow-right")}</a><a class="small-link" href="${fileUrl(release.downloads.mac)}" download>${icon("download")}macOS</a></div></article>`).join("")}</div><nav class="pagination" aria-label="${t("nav.updates")}"><button id="prevPage" ${page === 1 ? "disabled" : ""}>${t("install.previous")}</button><span>${t("install.page", { page, total: count })}</span><button id="nextPage" ${page === count ? "disabled" : ""}>${t("install.next")}</button></nav>`}
+  renderLayout(`<section class="section document-section"><div class="inner"><div class="page-head"><div><p class="eyebrow">OS Hero</p><h1>${t("install.title")}</h1><p class="lead">${t("install.description")}</p></div><div>${downloadButton(releases[0], "install_latest")}<p class="requirements">${requirements(releases[0])}</p></div></div>
+    ${!releases.length ? registryMessage() : `<div class="release-list">${releases.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE).map(release => `<article class="release-row"><div class="release-version"><a href="/versions/${release.version}"><h2>v${release.version}</h2></a><time datetime="${escapeHtml(release.releasedAt)}">${formatDate(release.releasedAt)}</time></div><p>${escapeHtml(getReleaseCopy(release).summary)}</p><div class="release-actions"><a class="text-link" href="/versions/${release.version}">${t("install.notes")}${icon("arrow-right")}</a><a class="small-link" href="${fileUrl(release.downloads.mac)}" download data-download-location="release_list">${icon("download")}macOS</a></div></article>`).join("")}</div><nav class="pagination" aria-label="${t("nav.updates")}"><button id="prevPage" ${page === 1 ? "disabled" : ""}>${t("install.previous")}</button><span>${t("install.page", { page, total: count })}</span><button id="nextPage" ${page === count ? "disabled" : ""}>${t("install.next")}</button></nav>`}
     </div></section>`, t("install.title"));
   document.getElementById("prevPage")?.addEventListener("click", () => { page--; renderInstall(); document.getElementById("app").focus({ preventScroll: true }); });
   document.getElementById("nextPage")?.addEventListener("click", () => { page++; renderInstall(); document.getElementById("app").focus({ preventScroll: true }); });
 }
 function renderVersion(version) {
-  if (!releases.length) { renderLayout(`<section class="section"><div class="inner">${registryMessage()}${downloadButton()}</div></section>`); return; }
+  if (!/^\d+\.\d+\.\d+$/.test(version)) { renderNotFound(); return; }
+  if (!releases.length) { renderLayout(`<section class="section"><div class="inner">${registryMessage()}${downloadButton()}</div></section>`, t("detail.title", { version })); return; }
   const release = releases.find(item => item.version === version);
   if (!release) { renderNotFound(); return; }
   const copy = getReleaseCopy(release);

@@ -1,5 +1,11 @@
 const messages = {
   ko: {
+    "analytics.title": "웹사이트 이용 통계", "analytics.notice": "방문과 다운로드 클릭 집계를 위한 Google Analytics 쿠키를 허용할까요? 거절해도 다운로드는 이용할 수 있습니다.",
+    "analytics.allow": "허용", "analytics.deny": "거절", "analytics.details": "자세히", "analytics.settings": "분석·개인정보 설정",
+    "analytics.provider": "동의한 경우에만 The Mercenary가 Google Analytics로 공식 사이트 방문과 설치 파일 링크 클릭을 집계합니다.",
+    "analytics.data": "Google에 페이지 조회, 다운로드 버전, 브라우저·기기 정보와 쿠키 기반 식별자가 전달됩니다. 히어로 데이터·이름·이메일은 보내지 않습니다. 다운로드 클릭은 다운로드 완료나 설치 완료를 뜻하지 않습니다.",
+    "analytics.retention": "선택은 180일 동안 기억합니다. 이곳에서 언제든 거절로 변경할 수 있으며, 허용을 철회하면 사이트의 분석 쿠키를 지우고 페이지를 새로고침합니다. 광고 기능은 사용하지 않습니다.",
+    "analytics.google": "Google 개인정보처리방침", "analytics.unset": "허용 전에는 분석이 꺼져 있습니다.", "analytics.granted": "분석을 허용한 상태입니다.", "analytics.denied": "분석이 꺼져 있습니다.",
     skip: "본문으로 이동", "nav.game": "게임 소개", "nav.wardrobe": "꾸미기", "nav.updates": "업데이트", "nav.language": "언어", "nav.menu": "메뉴", close: "닫기",
     "meta.title": "OS Hero | 메뉴바에서 함께하는 작은 모험", "meta.description": "Mac 메뉴바 속 나만의 픽셀 히어로. 7개 분류로 꾸미고, 초원을 탐험하며 전리품을 모으고 성장하세요. Apple Silicon · macOS 12 이상.",
     "hero.headline": "작은 히어로의 모험은 계속됩니다.", "hero.lead": "꾸미고, 탐험하고, 함께 성장하는 메뉴바 RPG.",
@@ -24,6 +30,12 @@ const messages = {
     "error.loading": "릴리스 정보를 불러오는 중입니다.", "error.registry": "릴리스 목록을 불러오지 못했습니다. GitHub에서 최신 공식 버전을 확인할 수 있습니다.", "error.retry": "다시 불러오기", "notFound.title": "페이지를 찾을 수 없습니다", "notFound.home": "홈으로 이동"
   },
   en: {
+    "analytics.title": "Website analytics", "analytics.notice": "Allow Google Analytics cookies to measure visits and download clicks? Downloads work without consent.",
+    "analytics.allow": "Allow", "analytics.deny": "Decline", "analytics.details": "Details", "analytics.settings": "Analytics & privacy",
+    "analytics.provider": "With your consent, The Mercenary uses Google Analytics to measure website visits and installer-link clicks.",
+    "analytics.data": "Google receives page views, download versions, browser/device information and a cookie-based identifier. We do not send your Hero data, name or email. Download clicks do not indicate completed downloads or installations.",
+    "analytics.retention": "We remember your choice for 180 days. You can withdraw at any time here; this removes this site's analytics cookies and reloads the page. Advertising features are disabled.",
+    "analytics.google": "Google Privacy Policy", "analytics.unset": "Analytics is off until you choose to allow it.", "analytics.granted": "Analytics is allowed.", "analytics.denied": "Analytics is off.",
     skip: "Skip to content", "nav.game": "The game", "nav.wardrobe": "Wardrobe", "nav.updates": "Updates", "nav.language": "Language", "nav.menu": "Menu", close: "Close",
     "meta.title": "OS Hero | Your menu bar adventure", "meta.description": "Your own pixel Hero in the Mac menu bar. Customize seven equipment slots, explore the meadow, collect loot and grow. Apple Silicon · macOS 12 or later.",
     "hero.headline": "A little Hero. An everyday adventure.", "hero.lead": "Customize, explore and grow together in your Mac menu bar.",
@@ -48,6 +60,12 @@ const messages = {
     "error.loading": "Loading release information.", "error.registry": "The release list is unavailable. You can find the latest official version on GitHub.", "error.retry": "Try again", "notFound.title": "Page not found", "notFound.home": "Go home"
   },
   zh: {
+    "analytics.title": "网站使用统计", "analytics.notice": "是否允许 Google Analytics Cookie 统计访问和下载点击？拒绝也不影响下载。",
+    "analytics.allow": "允许", "analytics.deny": "拒绝", "analytics.details": "详情", "analytics.settings": "分析与隐私设置",
+    "analytics.provider": "仅在获得同意后，The Mercenary 才使用 Google Analytics 统计官网访问和安装文件链接点击。",
+    "analytics.data": "Google 会收到页面浏览、下载版本、浏览器及设备信息和基于 Cookie 的标识符。我们不发送英雄数据、姓名或邮箱。下载点击不代表下载或安装完成。",
+    "analytics.retention": "选择保留 180 天。可随时在此改为拒绝；撤回同意后将删除本站分析 Cookie 并刷新页面。不使用广告功能。",
+    "analytics.google": "Google 隐私政策", "analytics.unset": "允许之前，分析处于关闭状态。", "analytics.granted": "已允许分析。", "analytics.denied": "分析已关闭。",
     skip: "跳到正文", "nav.game": "游戏介绍", "nav.wardrobe": "装扮", "nav.updates": "更新", "nav.language": "语言", "nav.menu": "菜单", close: "关闭",
     "meta.title": "OS Hero | 菜单栏里的小小冒险", "meta.description": "Mac 菜单栏里的专属像素英雄。七类装扮、草原探索、战利品收集，与英雄一起成长。Apple Silicon · macOS 12 及以上。",
     "hero.headline": "小小英雄，冒险从不缺席。", "hero.lead": "装扮、探索、共同成长，就在 Mac 菜单栏。",

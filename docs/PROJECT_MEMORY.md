@@ -7,3 +7,5 @@ The homepage explains named Hero registration, seven inventory categories and id
 `releases.json` is the only source of version/download truth. Error handling must never revert to the former hard-coded 1.2.0 installer. Use the live GitHub latest release page when registry loading fails. Keep external download URLs restricted to the app's official GitHub release assets.
 
 Static HTML/CSS/JS, local assets/fonts, no new runtime package. Native product art comes from the released 1.8.0 renderer and QA fixtures. Use `scripts/sync-pages.cjs` after changing the common HTML shell. See `design-qa.md` and `assets/README.md`.
+
+2026-11-18: GA4 property `OS Hero Website` / measurement ID `G-N63FQESCEM` configured. Opt-in manual page views and `download_click` implementation passed pre-deployment QA; production receipt verification is pending. `docs/ANALYTICS.md` describes the setup, privacy choices and metric limitations. Stream Enhanced Measurement is off to prevent duplicate page views. Five custom dimensions and a session-counted download key event are configured. App telemetry/update feeds are untouched.

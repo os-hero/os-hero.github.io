@@ -13,7 +13,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/png" href="/assets/product/hero.png">
   <link rel="preload" href="/assets/fonts/PressStart2P-Regular.ttf" as="font" type="font/ttf" crossorigin>
-  <link rel="stylesheet" href="/styles.css?v=guild-20261117">
+  <link rel="stylesheet" href="/styles.css?v=analytics-20261118">
 </head>
 <body>
   <a class="skip-link" href="#app" data-i18n="skip">Skip to content</a>
@@ -23,10 +23,14 @@
     <label class="language-control"><span class="sr-only" data-i18n="nav.language">Language</span><select id="languageSelect" aria-label="Language"><option value="en">English</option><option value="ko">한국어</option><option value="zh">简体中文</option></select></label>
     <button class="menu-toggle icon-button" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><img src="/assets/icons/menu.svg" width="24" height="24" alt=""></button>
   </div></header>
+  <aside class="analytics-notice" id="analytics-notice" aria-labelledby="analytics-notice-title" hidden><div class="inner analytics-notice-inner"><div><strong id="analytics-notice-title" data-i18n="analytics.title">Website analytics</strong><p data-i18n="analytics.notice">Allow Google Analytics cookies to measure visits and download clicks? Downloads work without consent.</p></div><div class="analytics-actions"><button type="button" class="small-link" data-analytics-choice="granted" data-i18n="analytics.allow">Allow</button><button type="button" class="small-link" data-analytics-choice="denied" data-i18n="analytics.deny">Decline</button><button type="button" class="text-link" data-analytics-settings data-i18n="analytics.details">Details</button></div></div></aside>
   <main id="app" tabindex="-1"><section class="section"><div class="inner"><h1>OS Hero</h1><p>A small adventure in your Mac menu bar.</p><a class="button" href="https://github.com/os-hero/os-hero/releases/latest">View the latest release</a></div></section></main>
   <footer class="site-footer" id="footer"></footer>
   <dialog id="inventory-dialog" aria-labelledby="inventory-dialog-title"><div class="dialog-header"><h2 id="inventory-dialog-title" data-i18n="wardrobe.preview">Inventory</h2><button type="button" class="icon-button dialog-close" aria-label="Close"><img src="/assets/icons/x.svg" width="24" height="24" alt=""></button></div><img class="app-capture" src="/assets/product/inventory.png" width="760" height="600" alt="OS Hero inventory with seven equipment slots"></dialog>
-  <script src="/content.js?v=guild-20261117"></script>
-  <script src="/app.js?v=guild-20261117"></script>
+  <dialog id="analytics-dialog" aria-labelledby="analytics-dialog-title"><div class="dialog-header"><h2 id="analytics-dialog-title" data-i18n="analytics.settings">Analytics & privacy</h2><button type="button" class="icon-button" data-analytics-close aria-label="Close"><img src="/assets/icons/x.svg" width="24" height="24" alt=""></button></div><div class="analytics-description"><p data-i18n="analytics.provider">With your consent, The Mercenary uses Google Analytics to measure website visits and installer-link clicks.</p><p data-i18n="analytics.data">Google receives page views, download versions, browser/device information and a cookie-based identifier. We do not send your Hero data, name or email. Download clicks do not indicate completed downloads or installations.</p><p data-i18n="analytics.retention">We remember your choice for 180 days. You can withdraw at any time here; this removes this site's analytics cookies and reloads the page. Advertising features are disabled.</p><a class="text-link" href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" data-i18n="analytics.google">Google Privacy Policy</a><p class="analytics-status" data-consent-state="unset" data-i18n="analytics.unset">Analytics is off until you choose to allow it.</p><p class="analytics-status" data-consent-state="granted" data-i18n="analytics.granted" hidden>Analytics is allowed.</p><p class="analytics-status" data-consent-state="denied" data-i18n="analytics.denied" hidden>Analytics is off.</p></div><div class="analytics-actions"><button type="button" class="small-link" data-analytics-choice="granted" data-i18n="analytics.allow">Allow</button><button type="button" class="small-link" data-analytics-choice="denied" data-i18n="analytics.deny">Decline</button></div></dialog>
+  <script src="/content.js?v=analytics-20261118"></script>
+  <script src="/analytics-config.js?v=analytics-20261118"></script>
+  <script src="/analytics.js?v=analytics-20261118"></script>
+  <script src="/app.js?v=analytics-20261118"></script>
 </body>
 </html>

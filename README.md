@@ -20,6 +20,7 @@ The root website is a buildless, multilingual Apple Silicon macOS download site.
 - `content.js`: product copy in three languages. `app.js`: registry, routes and interactions. `styles.css`: responsive visual system.
 - Native art refresh: `node scripts/export-product-art.cjs /path/to/released/app/source` using the released app's installed development dependencies. Never export from an experimental renderer or user save.
 - Asset provenance and licenses: `assets/README.md`. Browser QA evidence is kept in ignored `review-artifacts/website/`; the review outcome is tracked in `design-qa.md`.
+- Website analytics setup and measurement definitions: `docs/ANALYTICS.md`. `analytics-config.js` must contain the real GA4 stream ID before activation; analytics is opt-in and production-host-only. Do not add a second tag or enable automatic history tracking alongside manual page views.
 
 Starting with 1.3.0, installers, blockmaps and checksums are immutable GitHub Release assets in the app repository. `updates/latest-mac.yml` retains the original URL used by installed apps and points to those assets. Older installers remain under `updates/` for existing archive links.
 
